@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.wrapper{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.content{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+}
+.main{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.aside{
+  width: 20%;
+}
+small{
+  color: #942c2c;
+}
+
