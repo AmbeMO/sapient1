@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {ChangeRoleComponent} from "../change-role/change-role.component";
 
 @Component({
@@ -6,12 +6,29 @@ import {ChangeRoleComponent} from "../change-role/change-role.component";
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent  extends ChangeRoleComponent implements OnInit{
-  newnewUserName! : string
+export class NavComponent implements OnInit, DoCheck, OnDestroy{
+  userData = [];
+  usArr = [];
+  usN! : any
+  usR! : any
 
-  override ngOnInit(): void {
+  ngOnInit(){
+    this.userData = JSON.parse(<string>localStorage.getItem('User'))
+    this.usArr = Object.values(this.userData)
 
+  }
+  ngDoCheck(){
+    this.usN = this.usArr.filter((item, index) => index == 0)
+    this.usR = this.usArr.filter((item, index) => index == 1)
+    console.log(this.usR)
+  }
+  ngOnDestroy() {
+    this.usN = this.usArr.filter((item, index) => index == 0)
+    this.usR = this.usArr.filter((item, index) => index == 1)
+    console.log(this.usR)
   }
 
 
 }
+
+

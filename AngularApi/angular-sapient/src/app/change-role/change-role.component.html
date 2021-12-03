@@ -24,9 +24,9 @@
       <p>User role</p>
       <select id="role" formControlName="role">
         <option selected disabled>Seelect Role</option>
-        <option value="Discount">admin</option>
-        <option value="Cumulative">editor</option>
-        <option value="Other">user</option>
+        <option value="admin">admin</option>
+        <option value="editor">editor</option>
+        <option value="user">user</option>
       </select>
       <div *ngIf="form.get('role')?.touched && form.get('role')?.invalid"
            class="validation"

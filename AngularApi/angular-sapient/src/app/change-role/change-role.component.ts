@@ -12,7 +12,7 @@ import {UserService} from "../shared/services/user.service";
   templateUrl: './change-role.component.html',
   styleUrls: ['./change-role.component.scss']
 })
-export class ChangeRoleComponent implements OnInit {
+export class ChangeRoleComponent implements OnInit{
 
   form!: FormGroup
   user: any = {}
@@ -50,7 +50,7 @@ export class ChangeRoleComponent implements OnInit {
         'success'
       )
 
-      // this.router.navigate(['/'])
+      this.router.navigate(['/'])
 
     }
   }

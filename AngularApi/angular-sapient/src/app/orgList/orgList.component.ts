@@ -39,13 +39,13 @@ export class OrgListComponent  implements OnInit{
 
     }
   }
-  onUpdate(i: any){
-    this.findIndexOfKey(i);
-    console.log(this.lstOrgs)
-    for(let k = 0; k < this.lstOrgs.length+1; k++){
-      console.log(i, this.lstOrgs[k])
-      if(this.findIndexOfKey(i = k)){
-      }
-    }
-  }
+  // onUpdate(i: any){
+  //   this.findIndexOfKey(i);
+  //   console.log(this.lstOrgs)
+  //   for(let k = 0; k < this.lstOrgs.length+1; k++){
+  //     console.log(i, this.lstOrgs[k])
+  //     if(this.findIndexOfKey(i = k)){
+  //     }
+  //   }
+  // }
 }
