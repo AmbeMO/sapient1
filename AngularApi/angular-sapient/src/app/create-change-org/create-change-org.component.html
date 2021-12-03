@@ -4,7 +4,7 @@
     <div class="form-control"
          [ngClass]="{invalid: form.get('name')?.touched && form.get('name')?.invalid}"
     >
-      <input id="name" type="text" placeholder="Name" formControlName="name">
+      <input id="name" type="text" placeholder="Name" formControlName="name" minlength="6" maxlength="10">
       <div
         *ngIf="form.get('name')?.touched && form.get('name')?.invalid"
         class="validation"
@@ -13,7 +13,7 @@
           Input name field
         </small>
         <small *ngIf="form.get('name')?.errors?.['minlength']">
-          Input at least 6 symbols
+          Input at least 6 symbols and less than 10 symbols
         </small>
       </div>
     </div>
@@ -29,7 +29,7 @@
       <div *ngIf="form.get('cardType')?.touched && form.get('cardType')?.invalid"
         class="validation"
       >
-        <small *ngIf="form.get('name')?.errors?.['required']">
+        <small *ngIf="form.get('cardType')?.errors?.['required']">
           Choose one variant
         </small>
       </div>

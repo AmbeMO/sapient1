@@ -41,11 +41,14 @@ export class CreateChangeOrgComponent implements OnInit {
   }
   createOrganization(){
     this.form = this.fb.group({
-      name: [null, Validators.required,Validators.minLength(6)],
-      cardType: [null, Validators.required],
+      name: [null,[
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(10)]],
+      cardType: [null, [Validators.required]],
       cardNum: [Math.floor(Math.random() * (100 - 10 + 1)) + 10],
       creationalDate: [new Date],
-      status: [null, Validators.required],
+      status: [null, [Validators.required]],
     })
   }
 

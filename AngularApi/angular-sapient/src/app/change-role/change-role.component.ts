@@ -15,30 +15,20 @@ import {UserService} from "../shared/services/user.service";
 export class ChangeRoleComponent implements OnInit {
 
   form!: FormGroup
-  inputValue: any
-  user!: User
+  user: any = {}
 
 
-  constructor(public router: Router, private fb: FormBuilder, private userService: UserService){
-
+  constructor(public router: Router, private fb: FormBuilder){
   }
 
-  ngOnInit(): void {
-    // this.form = new FormGroup({
-    //   userName: new FormControl(null, [
-    //     Validators.required,
-    //     Validators.minLength(6)
-    //   ]),
-    //   role: new FormControl(null, [
-    //     Validators.required
-    //   ])
-    // })
-this.createUser();
+  ngOnInit(){
+  this.createUser();
   }
+
   createUser(){
     this.form = this.fb.group({
-      userName: [null,Validators.required, Validators.minLength(6)],
-      role: [null, Validators.required],
+      userName: [null, [Validators.required, Validators.minLength(6)]],
+      role: [null, [Validators.required]],
     })
   }
 
@@ -47,27 +37,32 @@ this.createUser();
       console.log(this.form)
       return
     }else{
+      console.log(this.form.value)
+      console.log(this.user)
+      this.user = Object.assign(this.user, this.form.value)
+      localStorage.setItem('User', JSON.stringify(this.user))
+
+      this.form.reset();
+
       Swal.fire(
         'Nice!',
         'You have just updated your role!',
         'success'
       )
-      this.userService.addUser(this.userData())
-      this.form.reset();
 
-      this.router.navigate(['/'])
+      // this.router.navigate(['/'])
 
     }
   }
-  userData(): User {
-    return this.user= {
-      userName: this.userName.value,
-      role: this.form.value.role,
-    }
-  }
-  get userName(){
-    return this.form.get('userName') as FormControl
-  }
+  // userData(): User {
+  //   return this.user= {
+  //     userName: this.userName.value,
+  //     role: this.form.value.role,
+  //   }
+  // }
+  // get userName(){
+  //   return this.form.get('userName') as FormControl
+  // }
 
 
 }
