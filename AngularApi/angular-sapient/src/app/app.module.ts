@@ -12,6 +12,7 @@ import { LinkBarComponent } from './link-bar/link-bar.component';
 import {AppRoutingModule} from "./app.routing.module";
 import {MainLayoutComponent} from "./shared/components/main-layout.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {OrganizationService} from "./shared/services/organization.service";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    OrganizationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

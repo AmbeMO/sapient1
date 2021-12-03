@@ -19,4 +19,13 @@ marquee { overflow: inherit !important; -moz-binding: none; }
 blink { text-decoration: none; }
 nobr { white-space: normal; }
 button{cursor:pointer; border:none;}
-body *{ box-sizing: border-box;outline:none;}
+body *{ box-sizing: border-box;outline:none;
+  font-family: 'Roboto', sans-serif;}
+
+small{
+  color: #942c2c;
+}
+.links{
+  cursor: pointer;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
