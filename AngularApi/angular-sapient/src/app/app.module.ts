@@ -13,6 +13,7 @@ import {AppRoutingModule} from "./app.routing.module";
 import {MainLayoutComponent} from "./shared/components/main-layout.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {OrganizationService} from "./shared/services/organization.service";
+import {SearchPipe} from "./shared/search.pipe";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {OrganizationService} from "./shared/services/organization.service";
     ChangeRoleComponent,
     NavComponent,
     LinkBarComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
