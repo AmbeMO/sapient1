@@ -1,0 +1,19 @@
+
+  <div class="side-bar" *ngIf="isHide">
+    <div class="side-bar__column">
+      <div class="side-bar__logo">
+        <img src="../../assets/img/credit-card.png" alt="logo">
+        <div class="side-bar__logo__text">
+          <p>Clients</p>
+          <p>Card</p>
+        </div>
+      </div>
+      <div class="side-bar__btn">
+        <ul>
+          <li class="side-bar__changeRole links" routerLink="/changeRole">Change Role</li>
+          <li class="side-bar__hideMenu links" (click)="hide()">Hide Menu</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+

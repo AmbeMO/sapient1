@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
+
+.side-bar{
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  border-right: 1px solid #555050;
+}
+.side-bar__column{
+  height: 100%;
+
+  padding: 20px 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.side-bar__logo{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+  color: #555050;
+  img{
+    width: 50%;
+    object-fit: contain;
+    padding: 20px;
+    border-right: 1px solid #555050;
+  }
+  .side-bar__logo__text{
+    width: 100%;
+    text-align: center;
+    padding-left: 10px;
+
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+  }
+}
+.side-bar__btn{
+  width: 100%;
+  ul{
+    width: 100%;
+    li{
+      width: 100%;
+      text-align: center;
+      padding: 10px 0px;
+      border-top: 1px solid #b0a7a7;
+    }
+      .side-bar__changeRole{
+        background-image: url(../../assets/img/icons/settings.png);
+        background-repeat: no-repeat;
+        background-size: 16px;
+        background-position: left;
+      }
+
+      .side-bar__hideMenu{
+        background-image: url(../../assets/img/icons/hide.png);
+        background-repeat: no-repeat;
+        background-size: 16px;
+        background-position: left;
+      }
+  }
+}

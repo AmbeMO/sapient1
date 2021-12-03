@@ -1,0 +1,33 @@
+<div class="cont">
+  <div class="org-list">
+<!--    <input type="text" placeholder="Search..." [(ngModel)]="searchStr">-->
+    <div class="create-btn">
+      <button class="links" routerLink="/createChange">Create Organization</button>
+    </div>
+    <table>
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Card type</th>
+        <th>Card number</th>
+        <th>Creation Date</th>
+        <th>Status</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let org of lstOrgs; let idx = index">
+          <td>{{idx + 1}}</td>
+          <td>{{org['name']}}</td>
+          <td>{{org['cardType']}}</td>
+          <td>{{org['cardNum']}}</td>
+          <td>{{org['creationalDate']}}</td>
+          <td>{{org['status']}}</td>
+<!--          <td><img (click)="onUpdate(org['i'])" src="../../assets/img/icons/edit.png" alt=""></td>-->
+          <td><img (click)="onDelete(org['idx'])" src="../../assets/img/icons/bin.png" alt=""></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
