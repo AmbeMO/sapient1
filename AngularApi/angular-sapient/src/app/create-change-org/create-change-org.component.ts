@@ -24,9 +24,13 @@ export class CreateChangeOrgComponent implements OnInit {
   ngOnInit(){
     this.createOrganization();
   }
+  counter(){
+    let k = this.n++
+    return k
+  }
   createOrganization(){
     this.form = this.fb.group({
-      id: [Math.floor(Math.random() * (10000 - 10 + 1)) + 10],
+      id: [this.counter()],
       name: [null,[
         Validators.required,
         Validators.minLength(6),
@@ -47,6 +51,7 @@ export class CreateChangeOrgComponent implements OnInit {
       // this.organization = Object.assign(this.organization, this.form.value)
       this.organizationService.addOrganization(this.organizationData());
       this.form.reset()
+
     }
 
     const organization: Organization = {
@@ -59,7 +64,7 @@ export class CreateChangeOrgComponent implements OnInit {
   }
   organizationData(): Organization{
     return this.organization = {
-      id: Math.floor(Math.random() * (10000 - 10 + 1)) + 10,
+      id: this.counter(),
       name: this.organizationName.value,
       cardType: this.form.value.cardType,
       cardNum: Math.floor(Math.random() * (100 - 10 + 1)) + 10,
