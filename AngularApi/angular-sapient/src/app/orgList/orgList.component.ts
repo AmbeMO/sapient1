@@ -1,6 +1,8 @@
 import {Component, OnInit} from "@angular/core";
 import {OrganizationService} from "../shared/services/organization.service";
 import {HttpInterceptor} from "@angular/common/http";
+import {SearchPipe} from "../shared/search.pipe";
+import {Organization} from "../shared/interfaces";
 
 @Component({
   selector: 'app-orgList',
@@ -9,13 +11,14 @@ import {HttpInterceptor} from "@angular/common/http";
 })
 
 export class OrgListComponent  implements OnInit{
-  lstOrgs = [];
+  lstOrgs = []
   searchStr = ''
   counter: number = 1
   constructor(private organizationService: OrganizationService) {
   }
   ngOnInit(){
     this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'))
+    console.log(this.searchStr)
 
   }
   findIndexOfKey = function(searchKey:any) {
@@ -30,7 +33,7 @@ export class OrgListComponent  implements OnInit{
     this.findIndexOfKey(i);
     console.log(this.lstOrgs)
     for(let k = 0; k < this.lstOrgs.length+1; k++){
-      console.log(i, this.lstOrgs[k])
+      // console.log(i, this.lstOrgs[k])
       if(this.findIndexOfKey(i = k)){
         let result: any = this.lstOrgs.slice(i)
         localStorage.setItem('Organizations', JSON.stringify(result))

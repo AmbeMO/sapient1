@@ -22,21 +22,6 @@ export class CreateChangeOrgComponent implements OnInit {
   }
 
   ngOnInit(){
-    // this.form = new FormGroup({
-    //   name: new FormControl(null, [
-    //     Validators.required,
-    //     Validators.minLength(6)
-    //     ]),
-    //   cardType: new FormControl(null, [
-    //     Validators.required
-    //   ]),
-    //   // cardNum : new FormControl(randomNum),
-    //   // creationalDate : new FormControl(dateOfCreation),
-    //   status: new FormControl(null, [
-    //     Validators.required
-    //   ])
-    // })
-
     this.createOrganization();
   }
   createOrganization(){

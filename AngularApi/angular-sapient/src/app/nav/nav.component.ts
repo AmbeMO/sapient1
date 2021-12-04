@@ -20,12 +20,12 @@ export class NavComponent implements OnInit, DoCheck, OnDestroy{
   ngDoCheck(){
     this.usN = this.usArr.filter((item, index) => index == 0)
     this.usR = this.usArr.filter((item, index) => index == 1)
-    console.log(this.usR)
+    // console.log(this.usR)
   }
   ngOnDestroy() {
     this.usN = this.usArr.filter((item, index) => index == 0)
     this.usR = this.usArr.filter((item, index) => index == 1)
-    console.log(this.usR)
+    // console.log(this.usR)
   }
 
 
