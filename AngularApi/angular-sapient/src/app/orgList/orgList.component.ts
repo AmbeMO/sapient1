@@ -21,34 +21,10 @@ export class OrgListComponent  implements OnInit{
     console.log(this.searchStr)
 
   }
-  findIndexOfKey = function(searchKey:any) {
-    for (let i = 0; i < localStorage.length; i++){
-      let key = localStorage.key(i);
-      if(key === searchKey)
-        return i;
-    }
-    return -1;
-  }
-  onDelete(i: any){
-    this.findIndexOfKey(i);
-    console.log(this.lstOrgs)
-    for(let k = 0; k < this.lstOrgs.length+1; k++){
-      // console.log(i, this.lstOrgs[k])
-      if(this.findIndexOfKey(i = k)){
-        let result: any = this.lstOrgs.slice(i)
-        localStorage.setItem('Organizations', JSON.stringify(result))
-        this.lstOrgs = result
-      }
+  onDelete(id: any){
+    let results:any = this.lstOrgs.slice(id)
+    localStorage.setItem('Organizations', JSON.stringify(results))
 
-    }
+    this.lstOrgs = results
   }
-  // onUpdate(i: any){
-  //   this.findIndexOfKey(i);
-  //   console.log(this.lstOrgs)
-  //   for(let k = 0; k < this.lstOrgs.length+1; k++){
-  //     console.log(i, this.lstOrgs[k])
-  //     if(this.findIndexOfKey(i = k)){
-  //     }
-  //   }
-  // }
 }

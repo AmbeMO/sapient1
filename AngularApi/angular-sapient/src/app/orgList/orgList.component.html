@@ -18,15 +18,15 @@
       </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let org of lstOrgs | searchName:searchStr; let id = index">
-          <td>{{id + 1}}</td>
+        <tr *ngFor="let org of lstOrgs | searchName:searchStr; let i = index">
+          <td>{{i + 1}}</td>
           <td>{{org['name']}}</td>
           <td>{{org['cardType']}}</td>
           <td>{{org['cardNum']}}</td>
           <td>{{org['creationalDate']}}</td>
           <td>{{org['status']}}</td>
 <!--          <td><img (click)="onUpdate(org['i'])" src="../../assets/img/icons/edit.png" alt=""></td>-->
-          <td><img (click)="onDelete(org)" src="../../assets/img/icons/bin.png" alt=""></td>
+          <td><img (click)="onDelete(i+1)" src="../../assets/img/icons/bin.png" alt=""></td>
         </tr>
 
       </tbody>

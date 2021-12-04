@@ -1,5 +1,5 @@
 export interface Organization {
-  id?: string
+  id?: number
   name: string
   cardType: boolean
   cardNum: number

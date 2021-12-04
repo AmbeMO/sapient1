@@ -14,7 +14,7 @@ export class CreateChangeOrgComponent implements OnInit {
 
   form!: FormGroup
   organization!: Organization;
-  n!: any
+  n: number = 1
 
   constructor(private fb: FormBuilder, private organizationService: OrganizationService) {
 
@@ -26,6 +26,7 @@ export class CreateChangeOrgComponent implements OnInit {
   }
   createOrganization(){
     this.form = this.fb.group({
+      id: [Math.floor(Math.random() * (10000 - 10 + 1)) + 10],
       name: [null,[
         Validators.required,
         Validators.minLength(6),
@@ -58,6 +59,7 @@ export class CreateChangeOrgComponent implements OnInit {
   }
   organizationData(): Organization{
     return this.organization = {
+      id: Math.floor(Math.random() * (10000 - 10 + 1)) + 10,
       name: this.organizationName.value,
       cardType: this.form.value.cardType,
       cardNum: Math.floor(Math.random() * (100 - 10 + 1)) + 10,
