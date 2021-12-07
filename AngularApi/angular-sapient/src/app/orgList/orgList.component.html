@@ -1,35 +1,47 @@
 <div class="cont">
   <div class="org-list">
 
-
-    <div class="create-btn">
-      <input type="text" placeholder="Search..." [(ngModel)]="searchStr">
-      <button class="links" routerLink="/createChange">Create Organization</button>
-    </div>
-    <table>
-      <thead>
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Card type</th>
-        <th>Card number</th>
-        <th>Creation Date</th>
-        <th>Status</th>
-      </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let org of lstOrgs | searchName:searchStr; let i = index">
-          <td>{{i + 1}}</td>
-          <td>{{org['name']}}</td>
-          <td>{{org['cardType']}}</td>
-          <td>{{org['cardNum']}}</td>
-          <td>{{org['creationalDate']}}</td>
-          <td>{{org['status']}}</td>
-<!--          <td><img (click)="onUpdate(org['i'])" src="../../assets/img/icons/edit.png" alt=""></td>-->
-          <td><img (click)="onDelete(i+1)" src="../../assets/img/icons/bin.png" alt=""></td>
+    <div class="org-data"  *ngIf="visibleTable">
+      <div class="create-btn">
+        <input type="text" placeholder="Search..." [(ngModel)]="searchStr">
+        <button class="links createOrg" routerLink="/createChange">Create Organization</button>
+      </div>
+      <table>
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Card type</th>
+          <th>Card number</th>
+          <th>Creation Date</th>
+          <th>Status</th>
         </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let org of lstOrgs | searchName:searchStr; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{org['name']}}</td>
+            <td>{{org['cardType']}}</td>
+            <td>{{org['cardNum']}}</td>
+            <td>{{org['creationalDate']}}</td>
+            <td>{{org['status']}}</td>
+  <!--          <td><img (click)="onUpdate(org['i'])" src="../../assets/img/icons/edit.png" alt=""></td>-->
+            <td><img (click)="onDelete(i+1)" src="../../assets/img/icons/bin.png" alt=""></td>
+          </tr>
 
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="!visibleTable" class="no-list">
+      <div class="no-list-btn">
+        <button class="links createOrg" routerLink="/createChange" >Create Organization</button>
+      </div>
+      <div class="no-list__body">
+        <img src="../../assets/img/icons/open-cardboard-box.png" alt="">
+        <p>No organization, please create one</p>
+        <hr class="no-list-hr">
+      </div>
+    </div>
+
   </div>
 </div>

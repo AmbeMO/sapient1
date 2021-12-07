@@ -14,6 +14,7 @@ import Swal from "sweetalert2";
 export class OrgListComponent  implements OnInit {
   lstOrgs = []
   searchStr = ''
+  visibleTable: boolean = true
 
 
   constructor(private organizationService: OrganizationService) {
@@ -22,19 +23,9 @@ export class OrgListComponent  implements OnInit {
   ngOnInit() {
     this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
 
-
-    let orgDate;
-    let arr = this.lstOrgs
-    for(let obj of arr){
-      let littleArr = Object.values(obj)
-      let fullDate = littleArr[4]
-
-
-      // orgDate = fullDate.getFullYear()
+    if(this.lstOrgs.length < 1){
+      this.visibleTable = false
     }
-    // console.log(arr)
-    // console.log(this.searchStr)
-
   }
 
   onDelete(id: any) {
@@ -53,6 +44,10 @@ export class OrgListComponent  implements OnInit {
         let results:any = this.lstOrgs.slice(id)
         localStorage.setItem('Organizations', JSON.stringify(results))
         this.lstOrgs = results
+
+        if(this.lstOrgs.length < 1){
+          this.visibleTable = false
+        }
       }
     })
   }

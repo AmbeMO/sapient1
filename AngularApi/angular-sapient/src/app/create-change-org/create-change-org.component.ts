@@ -25,7 +25,7 @@ export class CreateChangeOrgComponent implements OnInit {
 
   formatJSDate()
   {
-    return ( new Date().getFullYear() + '/' + (new Date().getMonth() + 1) + '/' + new Date().getDate() + ':' + new Date().getHours() + ' ' + new Date().getMinutes());
+    return ( new Date().getFullYear() + '/' + (new Date().getMonth() + 1) + '/' + new Date().getDate() + ' - ' + new Date().getHours() + ':' + new Date().getMinutes());
   }
 
   createOrganization(){
