@@ -8,13 +8,13 @@ import {ChangeRoleComponent} from "./change-role/change-role.component";
 
 const routes: Routes = [
   {
-    path: '', component: MainLayoutComponent, children: [
+    path: '',
+    component: MainLayoutComponent,
+    children: [
       {path: '', redirectTo: '/', pathMatch: 'full'},
       {path: '', component: OrgListComponent},
       {path: 'createChange', component: CreateChangeOrgComponent},
       {path: 'changeRole', component: ChangeRoleComponent},
-
-
     ]
   }
 ];

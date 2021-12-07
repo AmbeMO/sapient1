@@ -1,9 +1,9 @@
  <div class="wrapper">
    <div class="content">
      <div class="aside">
-         <app-side-bar></app-side-bar>
+         <app-side-bar (close)="closePanel()"></app-side-bar>
      </div>
-     <div class="main">
+     <div class="main" [ngClass]="{isPanelWhide: 'hde'}">
         <app-nav></app-nav>
         <app-link-bar></app-link-bar>
         <router-outlet></router-outlet>

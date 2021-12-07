@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent implements OnInit {
-  isHide! : boolean
+  isHide : boolean = true;
   toggle : boolean = true
 
   constructor() { }
@@ -15,8 +15,8 @@ export class SideBarComponent implements OnInit {
     this.isHide = true;
   }
   hide() {
-    this.toggle = !this.toggle
-    this.isHide = ! this.isHide
+    this.toggle = !this.toggle;
+    this.isHide = ! this.isHide;
 
   }
 

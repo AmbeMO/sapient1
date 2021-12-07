@@ -23,10 +23,10 @@
          [ngClass]="{invalid: form.get('role')?.touched && form.get('role')?.invalid}">
       <p>User role</p>
       <select id="role" formControlName="role">
-        <option selected disabled>Seelect Role</option>
+        <option value="user" selected >user</option>
         <option value="admin">admin</option>
         <option value="editor">editor</option>
-        <option value="user">user</option>
+
       </select>
       <div *ngIf="form.get('role')?.touched && form.get('role')?.invalid"
            class="validation"

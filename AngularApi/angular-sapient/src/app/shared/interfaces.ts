@@ -3,10 +3,10 @@ export interface Organization {
   name: string
   cardType: boolean
   cardNum: number
-  creationalDate: Date
+  creationalDate: string
   status: boolean
 }
 export interface  User {
   userName: string
-  role: boolean
+  role: string
 }
