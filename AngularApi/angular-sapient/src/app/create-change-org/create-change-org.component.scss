@@ -5,6 +5,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  padding-top: 50px;
 }
 form{
   display: flex;
@@ -13,6 +15,7 @@ form{
   width: 50%;
 }
 .form__group{
+  background-color: #fff;
   margin: 20px 0px;
 
   display: flex;
@@ -21,12 +24,17 @@ form{
   padding: 20px;
   border-radius: 3px;
   width: 100%;
-  border: 1px solid #555050;
+  border: 1px solid #dad5d5;
   box-shadow: 3px 5px 9px #888888;
   input, select{
+    border: 1px solid #dad5d5;
+    color: #a49c9c;
     padding: 10px;
     margin: 10px 0px;
     width: 100%;
+    &::placeholder{
+      color: #a49c9c;
+    }
   }
 }
 .form-control{
