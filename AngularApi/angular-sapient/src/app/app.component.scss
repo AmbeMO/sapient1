@@ -1,22 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .wrapper{
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  height: 100vh;
+  //width: 100%;
   overflow: hidden;
 }
 .content{
+  height: 100%;
   //height: 100vh;
   //width: 100%;
   display: flex;
 }
 .main{
+  height: 100%;
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 84%;
 }
 .aside{
-  width: 20%;
+  width: 16%;
 }
-
+.isPanelWhide{
+  height: 100%;
+  background-color: #ececec;
+}
 
