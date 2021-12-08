@@ -1,7 +1,7 @@
  <div class="wrapper">
    <div class="content">
-     <div class="aside">
-         <app-side-bar (close)="closePanel()"></app-side-bar>
+     <div class="aside"  (onHide)="asideHide($event)">
+         <app-side-bar></app-side-bar>
      </div>
      <div class="main" [ngClass]="{isPanelWhide: 'hde'}">
         <app-nav></app-nav>

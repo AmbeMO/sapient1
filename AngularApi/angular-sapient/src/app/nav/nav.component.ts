@@ -10,21 +10,36 @@ import {User} from "../shared/interfaces";
 export class NavComponent implements OnInit, DoCheck{
   userData!: User;
   usArr = [];
-  usN! : any
-  usR! : any
+  // usN! : any
+  // usR! : any
   constructor() {
 
   }
-
   ngOnInit(){
     if(this.userData || 'default'){
       this.userData = JSON.parse(<string>localStorage.getItem('User'))
     }
+    // if(this.userData.userName.length < 1){
+    //   this.userData.userName = 'John Smith'
+    // }
   }
+  defaultName(){
+    if(this.userData === null){
+      return 'John Smith'
+    }else return
+  }
+  defaultRole(){
+    if(this.userData === null){
+      return 'user'
+    }else return
+  }
+
+
   ngDoCheck(){
-    this.usN = this.usArr.filter((item, index) => index == 0)
-    this.usR = this.usArr.filter((item, index) => index == 1)
+    // this.usN = this.usArr.filter((item, index) => index == 0)
+    // this.usR = this.usArr.filter((item, index) => index == 1)
   }
+
 }
 
 

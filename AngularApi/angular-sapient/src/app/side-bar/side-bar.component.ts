@@ -1,23 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.scss']
 })
-export class SideBarComponent implements OnInit {
-  isHide : boolean = true;
-  toggle : boolean = true
+export class SideBarComponent implements OnInit{
 
-  constructor() { }
-
-  ngOnInit(): void {
-    this.isHide = true;
+  ngOnInit() {
   }
-  hide() {
-    this.toggle = !this.toggle;
-    this.isHide = ! this.isHide;
+  @Output() OnHide:EventEmitter<boolean> =  new EventEmitter();
 
+  hide() {
+    this.OnHide.emit(true)
   }
 
 }
