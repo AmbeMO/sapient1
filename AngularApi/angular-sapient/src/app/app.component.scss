@@ -17,13 +17,14 @@
   display: flex;
   flex-direction: column;
   width: 84%;
+  width: 100%;
+  height: 100%;
+  background-color: #ececec;
 }
 .aside{
   width: 16%;
 }
-.isPanelWhide{
-  width: 100%;
-  height: 100%;
-  background-color: #ececec;
+.isPanelFull{
+    display: none;
 }
 

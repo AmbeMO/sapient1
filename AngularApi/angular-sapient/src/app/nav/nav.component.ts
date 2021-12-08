@@ -19,9 +19,6 @@ export class NavComponent implements OnInit, DoCheck{
     if(this.userData || 'default'){
       this.userData = JSON.parse(<string>localStorage.getItem('User'))
     }
-    // if(this.userData.userName.length < 1){
-    //   this.userData.userName = 'John Smith'
-    // }
   }
   defaultName(){
     if(this.userData === null){

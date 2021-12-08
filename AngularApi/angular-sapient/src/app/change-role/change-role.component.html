@@ -6,7 +6,7 @@
          [ngClass]="{invalid: form.get('userName')?.touched && form.get('userName')?.invalid}"
     >
       <p>User Name</p>
-      <input id="userName" type="text" formControlName="userName">
+      <input id="userName" type="text" formControlName="userName" placeholder="{{checkExist() || '' || userData.userName}}">
       <div
         *ngIf="form.get('userName')?.touched && form.get('userName')?.invalid"
         class="validation"
@@ -24,10 +24,10 @@
          [ngClass]="{invalid: form.get('role')?.touched && form.get('role')?.invalid}">
       <p>User role</p>
       <select id="role" formControlName="role">
+        <option value="" disabled selected hidden>user</option>
         <option value="user" selected >user</option>
         <option value="admin">admin</option>
         <option value="editor">editor</option>
-
       </select>
       <div *ngIf="form.get('role')?.touched && form.get('role')?.invalid"
            class="validation"

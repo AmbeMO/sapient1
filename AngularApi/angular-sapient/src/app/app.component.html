@@ -1,9 +1,9 @@
  <div class="wrapper">
    <div class="content">
-     <div class="aside"  (onHide)="asideHide($event)">
-         <app-side-bar></app-side-bar>
+     <div class="aside" [ngClass]="{isPanelFull : state}">
+         <app-side-bar (isHide)="isHide(true)"></app-side-bar>
      </div>
-     <div class="main" [ngClass]="{isPanelWhide: 'hde'}">
+     <div class="main">
         <app-nav></app-nav>
         <app-link-bar></app-link-bar>
         <router-outlet></router-outlet>

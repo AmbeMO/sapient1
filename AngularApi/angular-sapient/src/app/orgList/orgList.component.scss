@@ -1,12 +1,8 @@
 table{
-  //margin: 20px;
-
   width: 100%;
   border: 1px solid #dad5d5;
   background-color: #fff;
   tr,td{
-
-    //width: 100%;
     border-bottom: 1px solid #ececec;
     padding: 10px;
     img{
@@ -20,9 +16,14 @@ table{
 thead{
   tr{
     th{
+      text-align: center;
       padding: 10px;
     }
   }
+}
+td{
+  vertical-align: middle;
+  text-align: center;
 }
 .cont{
   height: 100%;

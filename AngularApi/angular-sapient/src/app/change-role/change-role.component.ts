@@ -17,12 +17,22 @@ export class ChangeRoleComponent implements OnInit {
   form!: FormGroup
   user: any = {}
 
+  userData!: User;
+
 
   constructor(public router: Router, private fb: FormBuilder) {
   }
 
   ngOnInit() {
     this.createUser();
+    if(this.userData || 'default'){
+      this.userData = JSON.parse(<string>localStorage.getItem('User'))
+    }
+  }
+  checkExist(){
+    if(this.userData == null){
+      return 'John Smith'
+    }else return
   }
 
   createUser() {

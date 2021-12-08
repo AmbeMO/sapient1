@@ -1,16 +1,19 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'angular-sapient';
-  showAside: any;
+  state: any
 
+  ngOnInit() {
 
-  asideHide(isHide: any) {
-    this.showAside = true
   }
+  isHide(bool: any){
+    console.log(bool)
+    this.state = bool
+}
 }
