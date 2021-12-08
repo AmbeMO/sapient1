@@ -40,8 +40,8 @@
   ul{
     display: none;
     position: absolute;
-    right: 5%;
-    border: 1px solid #555050;
+    right: 3%;
+    border: 1px solid #dad5d5;
     padding: 20px;
     background-color: #fff;
     li{
@@ -59,7 +59,7 @@
         background-position: left;
       }
       &.nav__row__LogOut{
-        border-top: 1px solid #b0a7a7;
+        border-top: 1px solid #dad5d5;
         background-image: url(../../assets/img/icons/logout.png);
         background-repeat: no-repeat;
         background-size: 16px;

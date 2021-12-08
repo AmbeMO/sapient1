@@ -1,8 +1,16 @@
+.cont{
+  height: 100%;
+  background-color: #ececec;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 form{
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  max-width: 600px;
+  width: 50%;
 }
 .form__group{
   margin: 20px 0px;

@@ -27,6 +27,10 @@ thead{
 .cont{
   height: 100%;
   background-color: #ececec;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .org-list{
   background-color: #ececec;
@@ -36,7 +40,10 @@ thead{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  &:last-child{
+    //flex: 0 0 auto;
+  }
 }
 .org-data{
   width: 100%;
@@ -47,11 +54,12 @@ thead{
   justify-content: space-between;
   margin: 40px 0px;
   input{
-    padding-left: 20px;
+    width: 26%;
+    padding-left: 30px;
     background-image: url(../../assets/img/icons/search.png);
     background-repeat: no-repeat;
     background-size: 16px;
-    background-position: 2%;
+    background-position: 3%;
     border-radius: 2px;
     border: 1px solid #dad5d5;
   }
@@ -64,6 +72,7 @@ thead{
   box-shadow: 2px 4px 6px #888888;
 }
 .no-list{
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -76,19 +85,23 @@ thead{
   justify-content: flex-end;
 }
 .no-list__body{
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   margin-bottom: 100px;
   img{
-    width: 8%;
+    width: 7%;
   }
   p{
     padding: 10px 0px 20px 0px;
   }
 }
 .no-list-hr{
+  border: none;
+  border-top: 1px solid #dad5d5;
   width: 80%;
   size: 2px;
 }
+
