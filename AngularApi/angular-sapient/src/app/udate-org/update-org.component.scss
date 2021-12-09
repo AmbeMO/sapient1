@@ -24,3 +24,18 @@ input, select{
   border: 1px solid #d0c9c9;
   border-radius: 3px;
 }
+.form__btn{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+button{
+  color: #fffcfc;
+  border-radius: 3px;
+  background-color: #5ea14a;
+  padding: 10px;
+  width: 200px;
+  box-shadow: 3px 5px 9px #888888;
+}

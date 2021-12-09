@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {FormGroup} from "@angular/forms";
 import {ActivatedRoute, Route, Router} from "@angular/router";
 import {Organization} from "../shared/interfaces";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-update-org',
@@ -44,13 +45,29 @@ export class UpdateOrgComponent implements OnInit{
   // }
 
   updateOrg() {
-    const oldOrg = localStorage.getItem('Organizations')
-    if(oldOrg !== null){
-      const Organizations = JSON.parse(oldOrg)
-      Organizations.splice(Organizations.findIndex((a:any) => a.id == this.Organization.id),1)
-      Organizations.push(this.Organization)
-      localStorage.setItem('Organizations', JSON.stringify(Organizations))
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Update',
+      denyButtonText: `Don't update`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        const oldOrg = localStorage.getItem('Organizations')
+        if(oldOrg !== null){
+          const Organizations = JSON.parse(oldOrg)
+          Organizations.splice(Organizations.findIndex((a:any) => a.id == this.Organization.id),1)
+          Organizations.push(this.Organization)
+          localStorage.setItem('Organizations', JSON.stringify(Organizations))
+        Swal.fire('Updated!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
     }
-  }
-}
+   })
 
+  }
+
+
+}
