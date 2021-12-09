@@ -5,6 +5,7 @@ import {OrgListComponent} from "./orgList/orgList.component";
 import {CreateChangeOrgComponent} from "./create-change-org/create-change-org.component";
 import {MainLayoutComponent} from "./shared/components/main-layout.component";
 import {ChangeRoleComponent} from "./change-role/change-role.component";
+import {UpdateOrgComponent} from "./udate-org/update-org.component";
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
       {path: '', component: OrgListComponent},
       {path: 'createChange', component: CreateChangeOrgComponent},
       {path: 'changeRole', component: ChangeRoleComponent},
+      {path: 'updateOrg/:id', component :UpdateOrgComponent}
     ]
   }
 ];

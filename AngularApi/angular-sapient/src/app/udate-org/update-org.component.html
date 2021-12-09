@@ -1,0 +1,45 @@
+<div class="cont">
+    <div class="form__group">
+
+      <div class="form-control">
+        <input [(ngModel)]="Organization.name" name="name" type="text" placeholder="Name">
+      </div>
+
+      <div class="form-control">
+        <select [(ngModel)]="Organization.cardType" name="cardType">
+          <option selected disabled>Card type</option>
+          <option value="Discount">Discount</option>
+          <option value="Cumulative">Cumulative</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+
+      <input [(ngModel)]="Organization.cardNum" name="cardNum" type="text" placeholder="Card number" readonly>
+
+      <input [(ngModel)]="Organization.creationalDate" type="text" placeholder="Creation Date" readonly>
+
+      <div class="form-control">
+        <select [(ngModel)]="Organization.status" name="status">
+          <option selected disabled>Status</option>
+          <option value="Active">Active</option>
+          <option value="NotActive">Not Active</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="form__btn">
+      <button type="reset" class="btn btn__cancel">Cancel</button>
+      <button
+        type="submit"
+        class="btn"
+        (click)="updateOrg()"
+      >Update</button>
+    </div>
+
+
+  <div class="org__bottom-hr">
+  </div>
+</div>
+
+

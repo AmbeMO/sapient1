@@ -1,10 +1,10 @@
-export interface Organization {
+export class Organization {
   id?: number
-  name: string
-  cardType: boolean
-  cardNum: number
-  creationalDate: string
-  status: boolean
+  name?: any
+  cardType?: boolean
+  cardNum?: number
+  creationalDate?: string
+  status?: boolean
 }
 export interface  User {
   userName: string

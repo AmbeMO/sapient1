@@ -14,6 +14,7 @@ import {MainLayoutComponent} from "./shared/components/main-layout.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {OrganizationService} from "./shared/services/organization.service";
 import {SearchPipe} from "./shared/search.pipe";
+import {UpdateOrgComponent} from "./udate-org/update-org.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {SearchPipe} from "./shared/search.pipe";
     NavComponent,
     LinkBarComponent,
     MainLayoutComponent,
-    SearchPipe
+    SearchPipe,
+    UpdateOrgComponent
   ],
   imports: [
     BrowserModule,
