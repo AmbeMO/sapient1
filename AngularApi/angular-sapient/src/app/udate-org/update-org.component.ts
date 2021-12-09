@@ -49,17 +49,24 @@ export class UpdateOrgComponent implements OnInit{
       title: 'Do you want to save the changes?',
       showDenyButton: true,
       showCancelButton: true,
+      icon: 'warning',
       confirmButtonText: 'Update',
       denyButtonText: `Don't update`,
+      confirmButtonColor: '#5ea14a',
+      cancelButtonColor: '#B8B8B8',
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
+
         const oldOrg = localStorage.getItem('Organizations')
         if(oldOrg !== null){
           const Organizations = JSON.parse(oldOrg)
           Organizations.splice(Organizations.findIndex((a:any) => a.id == this.Organization.id),1)
           Organizations.push(this.Organization)
           localStorage.setItem('Organizations', JSON.stringify(Organizations))
+
+          this.router.navigate(['/'])
+
         Swal.fire('Updated!', '', 'success')
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')
