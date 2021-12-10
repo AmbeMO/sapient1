@@ -38,6 +38,7 @@ export class OrgListComponent  implements OnInit {
     if (this.lstOrgs.length < 1) {
       this.visibleTable = false
     }
+
   }
 
 
@@ -64,6 +65,8 @@ export class OrgListComponent  implements OnInit {
         if(orgs !== null){
           this.organizations = JSON.parse(orgs)
         }
+
+        this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
 
         if (this.lstOrgs.length < 1) {
           this.visibleTable = false
