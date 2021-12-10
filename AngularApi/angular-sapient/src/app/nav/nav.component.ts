@@ -10,8 +10,7 @@ import {User} from "../shared/interfaces";
 export class NavComponent implements OnInit, DoCheck{
   userData!: User;
   usArr = [];
-  // usN! : any
-  // usR! : any
+
   constructor() {
 
   }
@@ -19,6 +18,7 @@ export class NavComponent implements OnInit, DoCheck{
     if(this.userData || 'default'){
       this.userData = JSON.parse(<string>localStorage.getItem('User'))
     }
+    this.userData = JSON.parse(<string>localStorage.getItem('User'));
   }
   defaultName(){
     if(this.userData === null){
@@ -33,8 +33,7 @@ export class NavComponent implements OnInit, DoCheck{
 
 
   ngDoCheck(){
-    // this.usN = this.usArr.filter((item, index) => index == 0)
-    // this.usR = this.usArr.filter((item, index) => index == 1)
+    this.userData = JSON.parse(<string>localStorage.getItem('User'));
   }
 
 }

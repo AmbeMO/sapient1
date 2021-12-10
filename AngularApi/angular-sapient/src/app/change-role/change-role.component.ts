@@ -52,6 +52,8 @@ export class ChangeRoleComponent implements OnInit {
       this.user = Object.assign(this.user, this.form.value)
       localStorage.setItem('User', JSON.stringify(this.user))
 
+      this.userData = JSON.parse(<string>localStorage.getItem('User'));
+
       this.form.reset();
 
       Swal.fire(
