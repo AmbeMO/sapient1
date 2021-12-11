@@ -16,6 +16,8 @@ export class OrgListComponent  implements OnInit {
   searchStr = ''
   visibleTable: boolean = true
 
+  visibleSorting: boolean = false
+
   organizations: Organization []
 
   newName: any
@@ -74,7 +76,9 @@ export class OrgListComponent  implements OnInit {
       }
     })
   }
-
+  toggleSorting(){
+    this.visibleSorting = !this.visibleSorting
+  }
   sortByNumber() {
     console.log('Sorting...')
     const oldOrgs = localStorage.getItem('Organizations')

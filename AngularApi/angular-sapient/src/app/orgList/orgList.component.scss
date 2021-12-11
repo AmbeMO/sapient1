@@ -49,6 +49,18 @@ td{
 .org-data{
   width: 100%;
 }
+.sorting{
+  border: 1px solid #d0c9c9;
+  background-color: #fff;
+  border-radius: 3px;
+  color: #7e7b7b;
+  ul{
+    li{
+      padding: 15px;
+      border-bottom: 1px solid #d0c9c9;
+    }
+  }
+}
 .create-btn {
   width: 100%;
   display: flex;
@@ -63,6 +75,7 @@ td{
     background-position: 3%;
     border-radius: 2px;
     border: 1px solid #dad5d5;
+    max-height: 50px;
   }
 }
 .createOrg{
@@ -71,6 +84,7 @@ td{
   background-color: #5ea14a;
   padding: 10px 20px;
   box-shadow: 2px 4px 6px #888888;
+  max-height: 50px;
 }
 .no-list{
   margin-top: 80px;
