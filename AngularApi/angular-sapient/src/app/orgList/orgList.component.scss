@@ -49,6 +49,11 @@ td{
 .org-data{
   width: 100%;
 }
+.org-list__left-btn{
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+}
 .sorting{
   min-width: 200px;
   border: 1px solid #d0c9c9;
@@ -75,6 +80,7 @@ td{
   justify-content: space-between;
   margin: 40px 0px;
   input{
+    min-width: 200px;
     width: 26%;
     padding-left: 30px;
     background-image: url(../../assets/img/icons/search.png);
