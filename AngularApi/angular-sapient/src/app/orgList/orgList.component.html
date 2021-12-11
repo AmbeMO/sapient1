@@ -4,6 +4,15 @@
     <div class="org-data"  *ngIf="visibleTable">
       <div class="create-btn">
         <input type="text" placeholder="Search..." [(ngModel)]="searchStr">
+        <div class="sorting">
+          <ul>
+            <li>Sort</li>
+            <li (click)="sortByNumber()">By number ASC</li>
+            <li (click)="sortByNumberDESC()">By number DESC</li>
+            <li (click)="sortByName()">By name</li>
+            <li>By date</li>
+          </ul>
+        </div>
         <button class="links createOrg" routerLink="/createChange">Create Organization</button>
       </div>
       <table>
