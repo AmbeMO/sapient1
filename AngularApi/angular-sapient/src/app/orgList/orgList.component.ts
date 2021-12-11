@@ -139,11 +139,61 @@ export class OrgListComponent  implements OnInit {
 
   }
 
-  sortByName() {
-
-  }
   sortByNameDESC() {
+    console.log('Sorting by name desc...')
+    const oldOrgs = localStorage.getItem('Organizations')
 
+    if(oldOrgs !== null){
+      const organizations = JSON.parse(oldOrgs)
+      organizations.sort((a: any, b: any) => {
+        console.log('Sorting by name : ')
+        if(a.name > b.name){
+          console.log(a.name + ' > ' + b.name)
+          return -1
+        }else if ( a.name < b.name ){
+          console.log(JSON.stringify(a.name) + ' < ' + b.name)
+          return 1;
+        }return 0
+      })
+
+      localStorage.setItem('Organizations', JSON.stringify(organizations))
+
+      const orgs = localStorage.getItem('Organizations')
+      if(orgs !== null){
+        this.organizations = JSON.parse(orgs)
+      }
+
+      this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
+
+    }
+  }
+  sortByName(){
+    console.log('Sorting by name asc...')
+    const oldOrgs = localStorage.getItem('Organizations')
+
+    if(oldOrgs !== null){
+      const organizations = JSON.parse(oldOrgs)
+      organizations.sort((a: any, b: any) => {
+        console.log('Sorting by number : ')
+        if(a.name < b.name){
+          console.log(a.name + ' > ' + b.name)
+          return -1
+        }else if ( a.name > b.name ){
+          console.log(JSON.stringify(a.name) + ' < ' + b.name)
+          return 1;
+        }return 0
+      })
+
+      localStorage.setItem('Organizations', JSON.stringify(organizations))
+
+      const orgs = localStorage.getItem('Organizations')
+      if(orgs !== null){
+        this.organizations = JSON.parse(orgs)
+      }
+
+      this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
+
+    }
   }
   sortByDate() {
 
