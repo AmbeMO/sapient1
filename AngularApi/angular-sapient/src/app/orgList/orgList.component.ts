@@ -176,10 +176,10 @@ export class OrgListComponent  implements OnInit {
       organizations.sort((a: any, b: any) => {
         console.log('Sorting by number : ')
         if(a.name < b.name){
-          console.log(a.name + ' > ' + b.name)
+          console.log(a.name + ' < ' + b.name)
           return -1
         }else if ( a.name > b.name ){
-          console.log(JSON.stringify(a.name) + ' < ' + b.name)
+          console.log(JSON.stringify(a.name) + ' > ' + b.name)
           return 1;
         }return 0
       })
@@ -196,9 +196,59 @@ export class OrgListComponent  implements OnInit {
     }
   }
   sortByDate() {
+    console.log('Sorting by date asc...')
+    const oldOrgs = localStorage.getItem('Organizations')
 
+    if(oldOrgs !== null){
+      const organizations = JSON.parse(oldOrgs)
+      organizations.sort((a: any, b: any) => {
+        console.log('Sorting by date : ')
+        if(a.creationalDate < b.creationalDate){
+          console.log(a.creationalDate + ' < ' + b.creationalDate)
+          return -1
+        }else if ( a.creationalDate > b.creationalDate ){
+          console.log(JSON.stringify(a.creationalDate) + ' > ' + b.creationalDate)
+          return 1;
+        }return 0
+      })
+
+      localStorage.setItem('Organizations', JSON.stringify(organizations))
+
+      const orgs = localStorage.getItem('Organizations')
+      if(orgs !== null){
+        this.organizations = JSON.parse(orgs)
+      }
+
+      this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
+
+    }
   }
   sortByDateDESC() {
+    console.log('Sorting by desc...')
+    const oldOrgs = localStorage.getItem('Organizations')
 
+    if(oldOrgs !== null){
+      const organizations = JSON.parse(oldOrgs)
+      organizations.sort((a: any, b: any) => {
+        console.log('Sorting by number : ')
+        if(a.creationalDate > b.creationalDate){
+          console.log(a.creationalDate + ' > ' + b.creationalDate)
+          return -1
+        }else if ( a.creationalDate < b.creationalDate ){
+          console.log(JSON.stringify(a.creationalDate) + ' < ' + b.creationalDate)
+          return 1;
+        }return 0
+      })
+
+      localStorage.setItem('Organizations', JSON.stringify(organizations))
+
+      const orgs = localStorage.getItem('Organizations')
+      if(orgs !== null){
+        this.organizations = JSON.parse(orgs)
+      }
+
+      this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
+
+    }
   }
 }
