@@ -10,7 +10,7 @@
         <div class="sorting">
           <ul>
             <li (click)="toggleSorting()">Sort</li>
-            <div *ngIf="visibleSorting">
+            <div *ngIf="visibleSorting" class="links">
               <li (click)="sortByNumber()">By number ASC</li>
               <li (click)="sortByNumberDESC()">By number DESC</li>
               <li (click)="sortByName()">By name ASC</li>
@@ -22,10 +22,11 @@
         </div>
         </div>
 
-        <button class="links createOrg" routerLink="/createChange">Create Organization</button>
+        <button mat-raised-button class="links createOrg" routerLink="/createOrg">Create Organization</button>
 
       </div>
-      <table>
+
+      <table >
         <thead>
         <tr>
           <th>#</th>
@@ -36,8 +37,9 @@
           <th>Status</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody >
           <tr *ngFor="let org of lstOrgs | searchName:searchStr; let i = index">
+
             <td>{{i + 1}}</td>
             <td>{{org['name']}}</td>
             <td>{{org['cardType']}}</td>
@@ -46,14 +48,19 @@
             <td>{{org['status']}}</td>
             <td><img src="../../assets/img/icons/edit.png" alt="" [routerLink]="['/updateOrg',org.id]"></td>
             <td><img (click)="onDelete(org['id'])" src="../../assets/img/icons/bin.png" alt=""></td>
-          </tr>
 
+          </tr>
         </tbody>
       </table>
+<!--      <mat-paginator [length]="this.lstOrgs.length"-->
+<!--                     [pageSize]="3"-->
+<!--                     [pageSizeOptions]="[3, 6, 9]"-->
+<!--                     (page)="onPageChange($event)">-->
+<!--                                </mat-paginator>-->
     </div>
     <div *ngIf="!visibleTable" class="no-list">
       <div class="no-list-btn">
-        <button class="links createOrg" routerLink="/createChange" >Create Organization</button>
+        <button class="links createOrg" routerLink="/createOrg">Create Organization</button>
       </div>
       <div class="no-list__body">
         <img src="../../assets/img/icons/open-cardboard-box.png" alt="">
@@ -62,6 +69,7 @@
       </div>
     </div>
   </div>
+
 
   <div class="org__bottom-hr">
   </div>

@@ -11,39 +11,28 @@
 form{
   display: flex;
   flex-direction: column;
+
   margin: 0 auto;
   width: 50%;
-}
-.form__group{
-  background-color: #fff;
-  margin: 20px 0px;
-
-  display: flex;
-  flex-direction: column;
-
   padding: 20px;
+
   border-radius: 3px;
-  width: 100%;
-  border: 1px solid #dad5d5;
-  box-shadow: 3px 5px 9px #888888;
-  input, select{
-    border: 1px solid #dad5d5;
-    color: #a49c9c;
-    padding: 10px;
-    margin: 10px 0px;
-    border-radius: 4px;
-    width: 100%;
-    &::placeholder{
-      color: #a49c9c;
-    }
-  }
+  box-shadow: 2px 4px 6px #888888;
+  background-color: #fff;
 }
 .form-control{
   width: 100%;
 }
 .form__btn{
+  width: 50%;
+  margin: 0 auto;
+
+  //align-items: center;
   display: flex;
   justify-content: space-between;
+  button{
+    min-width: 100px;
+  }
 }
 .btn{
   color: #fffcfc;
@@ -51,6 +40,13 @@ form{
   background-color: #5ea14a;
   padding: 10px 20px;
   box-shadow: 2px 4px 6px #888888;
+}
+
+mat-form-field{
+  input{
+    border: none;
+    max-height: 40px!important;
+  }
 }
 
 

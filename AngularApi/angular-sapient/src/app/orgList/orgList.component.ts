@@ -4,6 +4,7 @@ import {HttpInterceptor} from "@angular/common/http";
 import {SearchPipe} from "../shared/search.pipe";
 import {Organization} from "../shared/interfaces";
 import Swal from "sweetalert2";
+import {PageEvent} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-orgList',
@@ -24,6 +25,7 @@ export class OrgListComponent  implements OnInit {
   cardType: any
   status: any
 
+  pageSlice = this.lstOrgs.slice(0, 3)
 
   constructor(private organizationService: OrganizationService) {
     this.organizations = []
@@ -250,5 +252,14 @@ export class OrgListComponent  implements OnInit {
       this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
 
     }
+  }
+  onPageChange(event: PageEvent){
+    console.log(event)
+    const startIndex = event.pageIndex * event.pageSize
+    let endIndex = startIndex + event.pageSize
+    if(endIndex > this.lstOrgs.length){
+      endIndex = this.lstOrgs.length
+    }
+    this.pageSlice = this.lstOrgs.slice(startIndex, endIndex)
   }
 }

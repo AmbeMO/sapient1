@@ -17,8 +17,13 @@ marquee { overflow: inherit !important; -moz-binding: none; }
 blink { text-decoration: none; }
 nobr { white-space: normal; }
 button{cursor:pointer; border:none;}
-body *{ box-sizing: border-box;outline:none;
-  font-family: 'Roboto', sans-serif;}
+body *{
+  box-sizing: border-box;outline:none;
+  font-family: 'Roboto', sans-serif;
+  .mat-app-background{
+    //$custom-background-color: #628cc9;
+  }
+}
 
 small{
   color: #942c2c;
@@ -45,7 +50,7 @@ button{
 }
 @media(max-width: 1200px) {
   .side-bar__logo__text{
-    font-size: 22px!important;
+    font-size: 18px!important;
   }
 }
 @media(max-width: 992px){
@@ -106,3 +111,6 @@ button{
   }
 
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

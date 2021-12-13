@@ -34,6 +34,11 @@ export class ChangeRoleComponent implements OnInit {
       return 'John Smith'
     }else return
   }
+  checkExistRole(){
+    if(this.userData == null){
+      return 'user'
+    }else return
+  }
 
   createUser() {
     this.form = this.fb.group({

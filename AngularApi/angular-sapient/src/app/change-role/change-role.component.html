@@ -23,8 +23,8 @@
     <div class="form-control"
          [ngClass]="{invalid: form.get('role')?.touched && form.get('role')?.invalid}">
       <p>User role</p>
+      <p class="small">previous role: {{checkExistRole() || userData.role}}</p>
       <select id="role" formControlName="role">
-        <option value="" disabled selected hidden>user</option>
         <option value="user" selected >user</option>
         <option value="admin">admin</option>
         <option value="editor">editor</option>
@@ -43,7 +43,7 @@
 
   </div>
   <div class="form__btn">
-    <button type="reset" class="btn btn__cancel">Cancel</button>
+    <button type="reset" routerLink="/" class="btn btn__cancel">Cancel</button>
     <button
       type="submit"
       class="btn"

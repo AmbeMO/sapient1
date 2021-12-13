@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import {OrgListComponent} from "./orgList/orgList.component";
-import { CreateChangeOrgComponent } from './create-change-org/create-change-org.component';
+import { CreateOrgComponent } from './create-org/create-org.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { ChangeRoleComponent } from './change-role/change-role.component';
 import { NavComponent } from './nav/nav.component';
@@ -15,12 +15,18 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {OrganizationService} from "./shared/services/organization.service";
 import {SearchPipe} from "./shared/search.pipe";
 import {UpdateOrgComponent} from "./udate-org/update-org.component";
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
+import {MatTableModule} from "@angular/material/table";
+import {MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
     AppComponent,
     OrgListComponent,
-    CreateChangeOrgComponent,
+    CreateOrgComponent,
     SideBarComponent,
     ChangeRoleComponent,
     NavComponent,
@@ -34,7 +40,13 @@ import {UpdateOrgComponent} from "./udate-org/update-org.component";
     CommonModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatTableModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [
     OrganizationService

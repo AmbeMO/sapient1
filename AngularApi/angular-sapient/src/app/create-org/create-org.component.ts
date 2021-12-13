@@ -8,11 +8,11 @@ import {Router} from "@angular/router";
 
 
 @Component({
-  selector: 'app-create-change-org',
-  templateUrl: './create-change-org.component.html',
-  styleUrls: ['./create-change-org.component.scss']
+  selector: 'app-create-org',
+  templateUrl: './create-org.component.html',
+  styleUrls: ['./create-org.component.scss']
 })
-export class CreateChangeOrgComponent implements OnInit {
+export class CreateOrgComponent implements OnInit {
 
   form!: FormGroup
   organization!: Organization;
@@ -44,6 +44,7 @@ export class CreateChangeOrgComponent implements OnInit {
 
   submit() {
     if (this.form.invalid) {
+      console.log('wrong')
       console.log(this.form)
       return
     }else{
