@@ -16,8 +16,8 @@ export class ChangeRoleComponent implements OnInit {
 
   form!: FormGroup
   user: any = {}
-
-  userData!: User;
+  userData!: User
+  selected: any = 'user'
 
 
   constructor(public router: Router, private fb: FormBuilder) {
@@ -28,6 +28,8 @@ export class ChangeRoleComponent implements OnInit {
     if(this.userData || 'default'){
       this.userData = JSON.parse(<string>localStorage.getItem('User'))
     }
+    this.selected = this.userData.role
+    console.log(this.selected)
   }
   checkExist(){
     if(this.userData == null){

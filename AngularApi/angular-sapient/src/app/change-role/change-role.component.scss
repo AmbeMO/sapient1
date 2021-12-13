@@ -14,29 +14,25 @@ form{
   flex-direction: column;
   margin: 0 auto;
   width: 50%;
-}
-.form__group{
-  margin: 20px 0px;
-  color: #a49c9c;
-  background-color: #fff;
-
-  display: flex;
-  flex-direction: column;
-
   padding: 20px;
   border-radius: 3px;
-  width: 100%;
-  border: 1px solid #dad5d5;
-  box-shadow: 3px 5px 9px #dad5d5;
-  input, select{
-    border-radius: 4px;
-    border: 1px solid #dad5d5;
-    padding: 10px;
-    color: #a49c9c;
-    margin: 10px 0px;
-    width: 100%;
+
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 2px 4px 6px #888888;
+}
+.form__btn{
+  width: 50%;
+  margin: 0 auto;
+
+  //align-items: center;
+  display: flex;
+  justify-content: space-between;
+  button{
+    min-width: 120px;
   }
 }
+
 .option{
   color: #942c2c;
 }

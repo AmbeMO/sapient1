@@ -1,56 +1,36 @@
 <div class="cont">
   <form [formGroup]="form" (ngSubmit)="submit()">
-  <div class="form__group">
 
-    <div class="form-control"
-         [ngClass]="{invalid: form.get('userName')?.touched && form.get('userName')?.invalid}"
-    >
-      <p>User Name</p>
-      <input id="userName" type="text" formControlName="userName" placeholder="{{checkExist() || '' || userData.userName}}">
-      <div
-        *ngIf="form.get('userName')?.touched && form.get('userName')?.invalid"
-        class="validation"
-      >
-        <small *ngIf="form.get('userName')?.errors?.['required']">
-          Input name field
-        </small>
-        <small *ngIf="form.get('userName')?.errors?.['minlength']">
-          Input at least 6 symbols
-        </small>
-      </div>
+
+    <mat-form-field appearance="outline" class="mat-input">
+      <mat-label>User Name</mat-label>
+      <input matInput id="userName" formControlName="userName" placeholder="{{checkExist() || '' || userData.userName}}">
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline" class="mat-input">
+      <mat-label>User role</mat-label>
+      <mat-select [(ngModel)]="selected" formControlName="role">
+        <mat-option value="user">user</mat-option>
+        <mat-option value="admin">admin</mat-option>
+        <mat-option value="editor">editor</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <div class="form__btn">
+      <button type="reset"  routerLink="/" class="btn btn__cancel" mat-raised-button>Cancel</button>
+      <button
+        type="submit"
+        class="btn"
+        [disabled]="form.invalid"
+      >Save</button>
     </div>
 
-    <div class="form-control"
-         [ngClass]="{invalid: form.get('role')?.touched && form.get('role')?.invalid}">
-      <p>User role</p>
-      <p class="small">previous role: {{checkExistRole() || userData.role}}</p>
-      <select id="role" formControlName="role">
-        <option value="user" selected >user</option>
-        <option value="admin">admin</option>
-        <option value="editor">editor</option>
-      </select>
-      <div *ngIf="form.get('role')?.touched && form.get('role')?.invalid"
-           class="validation"
-      >
-        <small *ngIf="form.get('role')?.errors?.['required']">
-          Choose one variant
-        </small>
-      </div>
-    </div>
-
-
-
-
-  </div>
-  <div class="form__btn">
-    <button type="reset" routerLink="/" class="btn btn__cancel">Cancel</button>
-    <button
-      type="submit"
-      class="btn"
-      [disabled]="form.invalid"
-    >Update</button>
-  </div>
 </form>
+
+
+
   <div class="org__bottom-hr">
   </div>
 </div>
