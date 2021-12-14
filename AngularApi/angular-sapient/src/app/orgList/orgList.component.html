@@ -6,6 +6,7 @@
       <div class="create-btn">
 
         <div class="org-list__left-btn">
+
           <mat-form-field appearance="outline" class="mat-input">
            <input matInput placeholder="Search..." [(ngModel)]="searchStr">
           </mat-form-field>
@@ -27,37 +28,43 @@
 
       </div>
 
-      <table >
-        <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Card type</th>
-          <th>Card number</th>
-          <th>Creation Date</th>
-          <th>Status</th>
-        </tr>
-        </thead>
-        <tbody >
-          <tr *ngFor="let org of lstOrgs | searchName:searchStr; let i = index">
+        <table mat-table [dataSource]="dataSource">
 
-            <td>{{i + 1}}</td>
-            <td>{{org['name']}}</td>
-            <td>{{org['cardType']}}</td>
-            <td>{{org['cardNum']}}</td>
-            <td>{{org['creationDate']}}</td>
-            <td>{{org['status']}}</td>
-            <td><img src="../../assets/img/icons/edit.png" alt="" [routerLink]="['/updateOrg',org.id]"></td>
-            <td><img (click)="onDelete(org['id'])" src="../../assets/img/icons/bin.png" alt=""></td>
+          <ng-container matColumnDef="index">
+            <th mat-header-cell *matHeaderCellDef> Index </th>
+            <td mat-cell *matCellDef="let element; let i = index;">{{i}}</td>
+          </ng-container>
 
-          </tr>
-        </tbody>
-      </table>
-<!--      <mat-paginator [length]="this.lstOrgs.length"-->
-<!--                     [pageSize]="3"-->
-<!--                     [pageSizeOptions]="[3, 6, 9]"-->
-<!--                     (page)="onPageChange($event)">-->
-<!--                                </mat-paginator>-->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let org"> {{org['name']}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="cardType">
+            <th mat-header-cell *matHeaderCellDef>Card Type </th>
+            <td mat-cell *matCellDef="let org"> {{org['cardType']}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="cardNum">
+          <th mat-header-cell *matHeaderCellDef>Card Number</th>
+          <td mat-cell *matCellDef="let org"> {{org['cardNum']}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="creationDate">
+            <th mat-header-cell *matHeaderCellDef>Card Creation</th>
+            <td mat-cell *matCellDef="let org"> {{org['creationDate']}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let org"> {{org['status']}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+
     </div>
     <div *ngIf="!visibleTable" class="no-list">
       <div class="no-list-btn">

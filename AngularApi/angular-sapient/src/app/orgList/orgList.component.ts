@@ -1,10 +1,12 @@
-import {Component, OnInit} from "@angular/core";
+import {AfterViewInit, Component, OnInit, ViewChild} from "@angular/core";
 import {OrganizationService} from "../shared/services/organization.service";
 import {HttpInterceptor} from "@angular/common/http";
 import {SearchPipe} from "../shared/search.pipe";
 import {Organization} from "../shared/interfaces";
 import Swal from "sweetalert2";
-import {PageEvent} from "@angular/material/paginator";
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import {getLocaleFirstDayOfWeek} from "@angular/common";
 
 @Component({
   selector: 'app-orgList',
@@ -12,7 +14,7 @@ import {PageEvent} from "@angular/material/paginator";
   styleUrls: ['./orgList.component.scss']
 })
 
-export class OrgListComponent  implements OnInit {
+export class OrgListComponent  implements OnInit, AfterViewInit {
   lstOrgs = []
   searchStr = ''
   visibleTable: boolean = true
@@ -25,10 +27,18 @@ export class OrgListComponent  implements OnInit {
   cardType: any
   status: any
 
-  pageSlice = this.lstOrgs.slice(0, 3)
+  displayedColumns: string[] = ['index','name', 'cardType', 'cardNum', 'creationDate', 'status'];
+  // dataSource = new MatTableDataSource<Organization>(this.lstOrgs);
+  dataSource  = []
 
   constructor(private organizationService: OrganizationService) {
     this.organizations = []
+  }
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    // this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit() {
@@ -42,6 +52,10 @@ export class OrgListComponent  implements OnInit {
     if (this.lstOrgs.length < 1) {
       this.visibleTable = false
     }
+
+    this.dataSource = this.lstOrgs
+    console.log(this.lstOrgs)
+    console.log(this.dataSource)
 
   }
 
@@ -77,9 +91,6 @@ export class OrgListComponent  implements OnInit {
         }
       }
     })
-  }
-  toggleSorting(){
-    this.visibleSorting = !this.visibleSorting
   }
   sortByNumber() {
     console.log('Sorting...')
@@ -253,13 +264,5 @@ export class OrgListComponent  implements OnInit {
 
     }
   }
-  onPageChange(event: PageEvent){
-    console.log(event)
-    const startIndex = event.pageIndex * event.pageSize
-    let endIndex = startIndex + event.pageSize
-    if(endIndex > this.lstOrgs.length){
-      endIndex = this.lstOrgs.length
-    }
-    this.pageSlice = this.lstOrgs.slice(startIndex, endIndex)
-  }
+
 }
