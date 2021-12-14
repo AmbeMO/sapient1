@@ -1,7 +1,7 @@
 <div class="cont">
   <form [formGroup]="form" (ngSubmit)="submit()">
 
-      <div class="form__group">
+    <mat-card class="form__group">
         <mat-form-field appearance="outline" class="mat-input">
           <mat-label>User Name</mat-label>
           <input matInput id="userName" [(ngModel)]="selectedName" formControlName="userName">
@@ -16,8 +16,7 @@
             <mat-option value="editor">editor</mat-option>
           </mat-select>
         </mat-form-field>
-      </div>
-
+    </mat-card>
     <div class="form__btn">
       <button mat-raised-button  routerLink="/" class="btn btn__cancel">Cancel</button>
 

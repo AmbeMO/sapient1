@@ -1,7 +1,7 @@
 <div class="cont">
   <form [formGroup]="form" (ngSubmit)="submit()">
 
-    <div class="form__group">
+    <mat-card class="form__group">
       <mat-form-field appearance="outline" class="mat-input">
         <mat-label>Organization name</mat-label>
         <input matInput placeholder="Name" formControlName="name">
@@ -33,7 +33,7 @@
           <mat-option value="NotActive">Not Active</mat-option>
         </mat-select>
       </mat-form-field>
-    </div>
+    </mat-card>
 
     <div class="form__btn">
       <button mat-raised-button routerLink="/" class="btn btn__cancel">Cancel</button>
@@ -50,5 +50,7 @@
 
 
   <div class="org__bottom-hr">
+
   </div>
+
 </div>
