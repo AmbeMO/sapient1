@@ -1,22 +1,22 @@
 <div class="cont">
   <form [formGroup]="form" (ngSubmit)="submit()">
 
+      <div class="form__group">
+        <mat-form-field appearance="outline" class="mat-input">
+          <mat-label>User Name</mat-label>
+          <input matInput id="userName" [(ngModel)]="selectedName" formControlName="userName">
+        </mat-form-field>
 
-    <mat-form-field appearance="outline" class="mat-input">
-      <mat-label>User Name</mat-label>
-      <input matInput id="userName" [(ngModel)]="selectedName" formControlName="userName">
-    </mat-form-field>
 
-
-    <mat-form-field appearance="outline" class="mat-input">
-      <mat-label>User role</mat-label>
-      <mat-select [(ngModel)]="selected" formControlName="role">
-        <mat-option value="user">user</mat-option>
-        <mat-option value="admin">admin</mat-option>
-        <mat-option value="editor">editor</mat-option>
-      </mat-select>
-    </mat-form-field>
-
+        <mat-form-field appearance="outline" class="mat-input">
+          <mat-label>User role</mat-label>
+          <mat-select [(ngModel)]="selected" formControlName="role">
+            <mat-option value="user">user</mat-option>
+            <mat-option value="admin">admin</mat-option>
+            <mat-option value="editor">editor</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
     <div class="form__btn">
       <button type="reset"  routerLink="/" class="btn btn__cancel" mat-raised-button>Cancel</button>
