@@ -1,37 +1,39 @@
 <div class="cont">
   <form [formGroup]="form" (ngSubmit)="submit()">
 
-    <mat-form-field appearance="outline" class="mat-input">
-      <mat-label>Organization name</mat-label>
-      <input matInput placeholder="Name" formControlName="name">
-    </mat-form-field>
+    <div class="form__group">
+      <mat-form-field appearance="outline" class="mat-input">
+        <mat-label>Organization name</mat-label>
+        <input matInput placeholder="Name" formControlName="name">
+      </mat-form-field>
 
 
 
-    <mat-form-field appearance="outline">
-      <mat-label>Card Type</mat-label>
-      <mat-select id="cardType" formControlName="cardType">
-        <mat-option value="Discount">Discount</mat-option>
-        <mat-option value="Cumulative">Cumulative</mat-option>
-        <mat-option value="Other">Other</mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Card Type</mat-label>
+        <mat-select id="cardType" formControlName="cardType">
+          <mat-option value="Discount">Discount</mat-option>
+          <mat-option value="Cumulative">Cumulative</mat-option>
+          <mat-option value="Other">Other</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="mat-input">
-      <input  matInput id="cardNum" type="text" placeholder="Card number" readonly>
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="mat-input">
+        <input  matInput id="cardNum" type="text" placeholder="Card number" readonly>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="mat-input">
-      <input  matInput id="creationDate" type="text" placeholder="Creation Date" readonly>
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="mat-input">
+        <input  matInput id="creationDate" type="text" placeholder="Creation Date" readonly>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Status</mat-label>
-      <mat-select id="status" formControlName="status">
-        <mat-option value="Active">Active</mat-option>
-        <mat-option value="NotActive">Not Active</mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select id="status" formControlName="status">
+          <mat-option value="Active">Active</mat-option>
+          <mat-option value="NotActive">Not Active</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
     <div class="form__btn">
       <button type="reset"  routerLink="/" class="btn btn__cancel" mat-raised-button>Cancel</button>
