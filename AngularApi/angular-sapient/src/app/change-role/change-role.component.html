@@ -19,8 +19,10 @@
       </div>
 
     <div class="form__btn">
-      <button type="reset"  routerLink="/" class="btn btn__cancel" mat-raised-button>Cancel</button>
+      <button mat-raised-button  routerLink="/" class="btn btn__cancel">Cancel</button>
+
       <button
+        mat-raised-button
         type="submit"
         class="btn"
         [disabled]="form.invalid"
