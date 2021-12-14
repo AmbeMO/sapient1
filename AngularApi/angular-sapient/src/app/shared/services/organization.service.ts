@@ -5,17 +5,11 @@ import {Organization} from "../interfaces";
   providedIn: 'root'
 })
 export class OrganizationService {
-  organizations: any = []
-  constructor() {
-  }
+
   addOrganization(organization: Organization) {
-    if(localStorage.getItem('Organizations')){
-      this.organizations = JSON.parse(<string>localStorage.getItem('Organizations'));
-      this.organizations = [organization, ...this.organizations]
-    }else{
-      this.organizations = [organization]
-    }
-    localStorage.setItem('Organizations', JSON.stringify(this.organizations))
+    let storageOrganizations = localStorage.getItem('Organizations')
+    let organizations = storageOrganizations ? [organization, ...JSON.parse(<string>storageOrganizations)] : [organization]
+    localStorage.setItem('Organizations', JSON.stringify(organizations))
 
   }
 }

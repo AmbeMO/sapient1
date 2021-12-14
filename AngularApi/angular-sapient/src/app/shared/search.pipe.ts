@@ -6,10 +6,7 @@ import {Organization} from "./interfaces";
 })
 export class SearchPipe implements PipeTransform {
   transform(lstOrgs: Organization[], search = ""): Organization[] {
-    if (!search.trim()) {
-      console.log('empty search field')
-      return lstOrgs
-    }
+    if (!search.trim()) return lstOrgs;
     return lstOrgs.filter(org => org['name'].toLowerCase().includes(search.toLowerCase()))
   }
 }
