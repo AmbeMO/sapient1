@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
 
-.side-bar{
+.side-bar {
   height: 100%;
   width: 100%;
   overflow: hidden;
   border-right: 1px solid #dad5d5;
 }
-.side-bar__column{
+
+.side-bar__column {
   height: 100%;
 
-  padding: 20px 0px 0px 0px;
+  padding-top: 20px;
 
   display: flex;
   flex-direction: column;
@@ -17,23 +18,27 @@
   align-items: center;
 
 }
-.side-bar__logo{
+
+.side-bar__logo {
   width: 100%;
   display: flex;
   align-items: center;
   font-size: 26px;
   color: #555050;
-  .side-bar__img{
+
+  .side-bar__img {
     width: 50%;
     display: flex;
     justify-content: center;
-    img{
+
+    img {
       //padding: 10px;
       width: 70%;
       //object-fit: contain;
     }
   }
-  .side-bar__logo__text{
+
+  .side-bar__logo__text {
     height: 100%;
     width: 50%;
 
@@ -50,42 +55,59 @@
     justify-content: center;
   }
 }
-.side-bar__btn{
+
+.side-bar__btn {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .side-bar__hr{
+
+  .side-bar__hr {
     //border: none;
     width: 90%;
     border: none;
     border-top: 1px solid #dad5d5;
     size: 1px;
   }
-  ul{
+
+  ul {
     width: 100%;
-    li{
+
+    li {
       width: 100%;
       text-align: center;
       padding: 24px;
-      &:last-child{
+
+      &:last-child {
         font-size: 14px;
         border-top: 1px solid #dad5d5;
       }
     }
-      .side-bar__changeRole{
-        background-image: url(../../assets/img/icons/settings.png);
-        background-repeat: no-repeat;
-        background-size: 16px;
-        background-position: 15%;
-      }
 
-      .side-bar__hideMenu{
-        background-image: url(../../assets/img/icons/hide.png);
-        background-repeat: no-repeat;
-        background-size: 20px;
-        background-position: 15%;
-      }
+    .side-bar__changeRole {
+      background-image: url(../../assets/img/icons/settings.png);
+      background-repeat: no-repeat;
+      background-size: 16px;
+      background-position: 15%;
+    }
+
+    .side-bar__hideMenu {
+      background-image: url(../../assets/img/icons/hide.png);
+      background-repeat: no-repeat;
+      background-size: 20px;
+      background-position: 15%;
+    }
   }
+}
+
+//media
+
+@media(max-width: 1200px) {
+  .side-bar__logo__text{
+    font-size: 18px;
+  }
+}
+@media(max-width: 992px) {
+
 }

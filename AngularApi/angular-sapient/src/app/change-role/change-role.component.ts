@@ -15,10 +15,10 @@ import {UserService} from "../shared/services/user.service";
 export class ChangeRoleComponent implements OnInit {
 
   form!: FormGroup
-  user: any = {}
+  user: any = {} // typing
   userData!: User
-  selected: any = 'user'
-  selectedName: any = 'John Smith'
+  selected: any = 'user'// typing
+  selectedName: any = 'John Smith'// typing
 
 
   constructor(public router: Router, private fb: FormBuilder) {
@@ -36,6 +36,14 @@ export class ChangeRoleComponent implements OnInit {
     console.log(this.selectedName)
 
   }
+
+  createUser() {
+    this.form = this.fb.group({
+      userName: [null, [Validators.required, Validators.minLength(6)]],
+      role: [null, [Validators.required]],
+    })
+  }
+
   checkExist(){
     if(this.userData == null){
       return 'John Smith'
@@ -47,12 +55,7 @@ export class ChangeRoleComponent implements OnInit {
     }else return
   }
 
-  createUser() {
-    this.form = this.fb.group({
-      userName: [null, [Validators.required, Validators.minLength(6)]],
-      role: [null, [Validators.required]],
-    })
-  }
+
 
   submit() {
     if (this.form.invalid) {

@@ -1,4 +1,4 @@
-.cont{
+.cont {
   height: 100%;
   background-color: #ececec;
 
@@ -8,7 +8,8 @@
 
   padding-top: 50px;
 }
-form{
+
+form {
   display: flex;
   flex-direction: column;
 
@@ -18,7 +19,8 @@ form{
 
 
 }
-.form__group{
+
+.form__group {
   display: flex;
   flex-direction: column;
 
@@ -27,20 +29,24 @@ form{
   //box-shadow: 2px 4px 6px #888888;
   background-color: #fff;
 }
-.form-control{
+
+.form-control {
   width: 100%;
 }
-.form__btn{
+
+.form__btn {
   margin-top: 30px;
 
   //align-items: center;
   display: flex;
   justify-content: space-between;
-  button{
+
+  button {
     min-width: 120px;
   }
 }
-.btn{
+
+.btn {
   color: #fffcfc;
   border-radius: 3px;
   background-color: #5ea14a;
@@ -48,11 +54,17 @@ form{
   box-shadow: 2px 4px 6px #888888;
 }
 
-mat-form-field{
-  input{
+mat-form-field {
+  input {
     border: none;
-    max-height: 40px!important;
+    max-height: 40px !important;
   }
 }
 
+
+@media(max-width: 767px) {
+  form {
+    width: 85%;
+  }
+}
 

@@ -3,11 +3,11 @@
     <mat-card class="form__group">
 
         <mat-form-field appearance="outline" class="mat-input">
-           <input matInput [(ngModel)]="Organization.name" name="name" placeholder="organization name">
+           <input matInput [(ngModel)]="organization.name" name="name" placeholder="organization name">
         </mat-form-field>
 
       <mat-form-field appearance="outline" class="mat-input">
-        <mat-select [(ngModel)]="Organization.cardType" name="cardType">
+        <mat-select [(ngModel)]="organization.cardType" name="cardType">
           <mat-option disabled>Card Type</mat-option>
           <mat-option value="Discount">Discount</mat-option>
           <mat-option value="Cumulative">Cumulative</mat-option>
@@ -16,16 +16,16 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="mat-input">
-         <input matInput [(ngModel)]="Organization.cardNum" name="cardNum" readonly>
+         <input matInput [(ngModel)]="organization.cardNum" name="cardNum" readonly>
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="mat-input">
-          <input matInput [(ngModel)]="Organization.creationalDate" type="text" placeholder="Creation Date" readonly>
+          <input matInput [(ngModel)]="organization.creationDate" type="text" placeholder="Creation Date" readonly>
       </mat-form-field>
 
 
       <mat-form-field appearance="outline" class="mat-input">
-        <mat-select [(ngModel)]="Organization.status" name="status">
+        <mat-select [(ngModel)]="organization.status" name="status">
           <mat-option selected disabled>Status</mat-option>
           <mat-option value="Active">Active</mat-option>
           <mat-option value="NotActive">Not Active</mat-option>

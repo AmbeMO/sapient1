@@ -11,24 +11,26 @@ import Swal from "sweetalert2";
 })
 export class UpdateOrgComponent implements OnInit{
 
-  Organization: Organization;
+  organization: Organization;
+
   constructor(private route: ActivatedRoute, private router: Router) {
-    this.Organization = new Organization()
+
+    this.organization = new Organization()
     this.route.params.subscribe((res) => {
-      this.Organization.id = res['id']
+      this.organization.id = res['id']
     })
   }
   ngOnInit():void {
     const oldOrg = localStorage.getItem('Organizations')
     if(oldOrg !== null){
       const Organizations = JSON.parse(oldOrg)
-      const currentOrg = Organizations.find((o : any) => o.id ==  this.Organization.id)
+      const currentOrg = Organizations.find((o : any) => o.id ==  this.organization.id)
       if (currentOrg !== undefined) {
-        this.Organization.name = currentOrg.name
-        this.Organization.status = currentOrg.status
-        this.Organization.cardType = currentOrg.cardType
-        this.Organization.creationalDate = currentOrg.creationalDate
-        this.Organization.cardNum = currentOrg.cardNum
+        this.organization.name = currentOrg.name
+        this.organization.status = currentOrg.status
+        this.organization.cardType = currentOrg.cardType
+        this.organization.creationDate = currentOrg.creationalDate
+        this.organization.cardNum = currentOrg.cardNum
 
       }
     }
@@ -61,8 +63,8 @@ export class UpdateOrgComponent implements OnInit{
         const oldOrg = localStorage.getItem('Organizations')
         if(oldOrg !== null){
           const Organizations = JSON.parse(oldOrg)
-          Organizations.splice(Organizations.findIndex((a:any) => a.id == this.Organization.id),1)
-          Organizations.push(this.Organization)
+          Organizations.splice(Organizations.findIndex((a:any) => a.id == this.organization.id),1)
+          Organizations.push(this.organization)
           localStorage.setItem('Organizations', JSON.stringify(Organizations))
 
           this.router.navigate(['/'])

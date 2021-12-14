@@ -60,4 +60,11 @@
 
   }
 }
-
+//media
+@media (max-width: 992px){
+  .nav__row{
+    justify-content: space-between;
+    width: 94%;
+    margin: 0 auto;
+  }
+}

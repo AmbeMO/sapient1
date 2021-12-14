@@ -1,28 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+small {
+  color: #942c2c;
+}
 
-.wrapper{
+app-main-layout {
+  height: 100%;
+}
+
+.org__bottom-hr {
+  height: 64px;
+  width: 100%;
+  border-top: 1px solid #dad5d5;
+}
+
+
+//app
+.wrapper {
   min-height: 100%;
   height: 100vh;
-  //width: 100%;
   overflow: hidden;
 }
-.content{
+
+.content {
   height: 100%;
   //height: 100vh;
   //width: 100%;
   display: flex;
 }
-.main{
+
+.main {
   height: 100%;
   display: flex;
   flex-direction: column;
   width: 100%;
   background-color: #ececec;
 }
-.aside{
+
+.aside {
   width: 16%;
 }
-.isPanelFull{
+
+.isPanelFull {
+  display: none;
+}
+
+
+//media
+@media(max-width: 992px) {
+  .aside {
     display: none;
+  }
+  .wrapper {
+    height: 100%;
+  }
+}
+
+@media(max-width: 767px) {
+  button {
+    width: 40%;
+  }
 }
 

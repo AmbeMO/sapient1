@@ -1,5 +1,4 @@
-import {Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
-import {ChangeRoleComponent} from "../change-role/change-role.component";
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {User} from "../shared/interfaces";
 
 @Component({
@@ -7,7 +6,7 @@ import {User} from "../shared/interfaces";
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit, DoCheck{
+export class NavComponent implements OnInit, DoCheck {
   userData!: User;
   usArr = [];
   toggleMenu: boolean = false;
@@ -15,28 +14,32 @@ export class NavComponent implements OnInit, DoCheck{
   constructor() {
 
   }
-  ngOnInit(){
-    if(this.userData || 'default'){
-      this.userData = JSON.parse(<string>localStorage.getItem('User'))
-    }
-    this.userData = JSON.parse(<string>localStorage.getItem('User'));
+
+  ngOnInit() {
+    // if (this.userData || 'default') {
+    //   this.userData = JSON.parse(<string>localStorage.getItem('User'))
+    // }
+    // this.userData = JSON.parse(<string>localStorage.getItem('User'));
   }
-  toggleSubMenu(){
+
+  toggleSubMenu() {
     this.toggleMenu = !this.toggleMenu
   }
-  defaultName(){
-    if(this.userData === null){
-      return 'John Smith'
-    }else return
+
+  defaultName() {
+      return !this.userData ? 'John Smith' : ''
   }
-  defaultRole(){
-    if(this.userData === null){
+
+  defaultRole() {
+    if (this.userData === null) {
       return 'user'
-    }else return
+    } else return
   }
 
-
-  ngDoCheck(){
+  // usually not needed
+  // all work with local stogage from service
+  // this.userData = this.storageService.getByKey('User'));
+  ngDoCheck() {
     this.userData = JSON.parse(<string>localStorage.getItem('User'));
   }
 

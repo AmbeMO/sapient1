@@ -1,19 +1,14 @@
 import {Injectable} from "@angular/core";
-import {Organization, User} from "../interfaces";
+import {User} from "../interfaces";
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class UserService{
+export class UserService {
   addUser(user: User) {
-    let users = [];
-    if(localStorage.getItem('Users')){
-      users = JSON.parse(<string>localStorage.getItem('Users'));
-      users = [user, ...users]
-    }else{
-      users = [user]
-    }
+    let storageUsers = localStorage.getItem('Users')
+    let users = storageUsers ? [user, ...JSON.parse(<string>storageUsers)] : [user]
     localStorage.setItem('Organizations', JSON.stringify(users))
 
   }

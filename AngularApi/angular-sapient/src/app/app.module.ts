@@ -23,6 +23,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -37,21 +38,22 @@ import {MatIconModule} from "@angular/material/icon";
     SearchPipe,
     UpdateOrgComponent
   ],
-  imports: [
-    BrowserModule,
-    CommonModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatPaginatorModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatTableModule,
-    MatInputModule,
-    MatSelectModule,
-    MatCardModule,
-    MatIconModule
-  ],
+    imports: [
+        BrowserModule,
+        CommonModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatPaginatorModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatTableModule,
+        MatInputModule,
+        MatSelectModule,
+        MatCardModule,
+        MatIconModule,
+        MatMenuModule
+    ],
   providers: [
     OrganizationService
   ],

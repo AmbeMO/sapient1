@@ -12,9 +12,9 @@ export class SideBarComponent implements OnInit{
 
   @Output() isHide = new EventEmitter<boolean>();
 
-  hides(bool: any){
+  isHidden(bool: boolean){
     console.log(bool)
-    return this.isHide.emit(bool)
+    this.isHide.emit(bool)
   }
 
 }

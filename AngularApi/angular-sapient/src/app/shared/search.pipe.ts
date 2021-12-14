@@ -4,15 +4,12 @@ import {Organization} from "./interfaces";
 @Pipe({
   name: 'searchName'
 })
-export class SearchPipe implements PipeTransform{
-  transform(lstOrgs: Organization[], search=""): Organization[]{
-    if(!search.trim()){
+export class SearchPipe implements PipeTransform {
+  transform(lstOrgs: Organization[], search = ""): Organization[] {
+    if (!search.trim()) {
       console.log('empty search field')
       return lstOrgs
     }
-    return lstOrgs.filter(org=> {
-      console.log('filtring')
-      return org['name'].toLowerCase().includes(search.toLowerCase())
-    })
+    return lstOrgs.filter(org => org['name'].toLowerCase().includes(search.toLowerCase()))
   }
 }

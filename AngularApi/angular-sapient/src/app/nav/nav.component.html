@@ -1,21 +1,29 @@
 
   <div class="nav">
     <div class="nav__row">
-      <ul>
-        <li>
+          <!--  try to avoid functions in templates -->
           {{defaultName() || userData.userName}}
-        </li>
-      </ul>
       <img src="../../assets/img/avatar.png" alt="">
       <div class="nav__row__menu">
-        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="toggleSubMenu()">
+
+        <button mat-icon-button [matMenuTriggerFor]="beforeMenu" (click)="toggleSubMenu()">
           <mat-icon>more_vert</mat-icon>
         </button>
-        <ul *ngIf="toggleMenu">
-          <li class="nav__row__currentRole">CurrentRole: {{ defaultRole()|| userData.role}}</li>
-          <li class="nav__row__changeRole links" routerLink="/changeRole">Change Role</li>
-          <li class="nav__row__LogOut">Logout</li>
-        </ul>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <button mat-menu-item>
+            <mat-icon>people_outline</mat-icon>
+            <span>CurrentRole: {{ defaultRole() || userData.role}}</span>
+          </button>
+          <button mat-menu-item routerLink="/changeRole">
+            <mat-icon>filter_vintage</mat-icon>
+            <span>Change role</span>
+          </button>
+          <button mat-menu-item disabled>
+            <mat-icon>no_meeting_room</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+
       </div>
     </div>
   </div>

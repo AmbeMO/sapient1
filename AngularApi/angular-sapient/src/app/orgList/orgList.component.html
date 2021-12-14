@@ -9,19 +9,18 @@
           <mat-form-field appearance="outline" class="mat-input">
            <input matInput placeholder="Search..." [(ngModel)]="searchStr">
           </mat-form-field>
-        <div class="sorting">
-          <ul>
-            <li (click)="toggleSorting()">Sort</li>
-            <div *ngIf="visibleSorting" class="links">
-              <li (click)="sortByNumber()">By number ASC</li>
-              <li (click)="sortByNumberDESC()">By number DESC</li>
-              <li (click)="sortByName()">By name ASC</li>
-              <li (click)="sortByNameDESC()">By name DESC</li>
-              <li (click)="sortByDate()">By date ASC</li>
-              <li (click)="sortByDateDESC()">By date DESC</li>
-            </div>
-          </ul>
-        </div>
+
+
+          <button mat-button [matMenuTriggerFor]="menu" class="sort-btn">Sort</button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="sortByNumber()">By number ASC</button>
+            <button mat-menu-item (click)="sortByNumberDESC()">By number DESC</button>
+            <button mat-menu-item (click)="sortByName()">By name ASC</button>
+            <button mat-menu-item (click)="sortByNameDESC()">By name DESC</button>
+            <button mat-menu-item (click)="sortByDate()">By date ASC</button>
+            <button mat-menu-item (click)="sortByDateDESC()">By date DESC</button>
+          </mat-menu>
+
         </div>
 
         <button mat-raised-button class="links createOrg" routerLink="/createOrg">Create Organization</button>
@@ -46,7 +45,7 @@
             <td>{{org['name']}}</td>
             <td>{{org['cardType']}}</td>
             <td>{{org['cardNum']}}</td>
-            <td>{{org['creationalDate']}}</td>
+            <td>{{org['creationDate']}}</td>
             <td>{{org['status']}}</td>
             <td><img src="../../assets/img/icons/edit.png" alt="" [routerLink]="['/updateOrg',org.id]"></td>
             <td><img (click)="onDelete(org['id'])" src="../../assets/img/icons/bin.png" alt=""></td>

@@ -3,7 +3,7 @@ export class Organization {
   name?: any
   cardType?: boolean
   cardNum?: number
-  creationalDate?: string
+  creationDate?: string
   status?: boolean
 }
 export interface  User {
