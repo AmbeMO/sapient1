@@ -87,8 +87,6 @@ td{
     background-repeat: no-repeat;
     background-size: 16px;
     background-position: 3%;
-    border-radius: 2px;
-    border: 1px solid #dad5d5;
     max-height: 50px;
   }
 }
@@ -132,4 +130,9 @@ td{
   border-top: 1px solid #dad5d5;
   width: 80%;
   size: 2px;
+}
+.mat-input{
+  .mat-form-field-appearance-outline .mat-form-field-outline{
+    background-color: #fff!important;
+  }
 }

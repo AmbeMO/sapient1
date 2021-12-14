@@ -6,7 +6,9 @@
       <div class="create-btn">
 
         <div class="org-list__left-btn">
-        <input type="text" placeholder="Search..." [(ngModel)]="searchStr">
+          <mat-form-field appearance="outline" class="mat-input">
+           <input matInput placeholder="Search..." [(ngModel)]="searchStr">
+          </mat-form-field>
         <div class="sorting">
           <ul>
             <li (click)="toggleSorting()">Sort</li>
