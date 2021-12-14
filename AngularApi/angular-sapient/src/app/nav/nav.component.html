@@ -8,8 +8,10 @@
       </ul>
       <img src="../../assets/img/avatar.png" alt="">
       <div class="nav__row__menu">
-        <img src="../../assets/img/icons/menu.png" alt="">
-        <ul>
+        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="toggleSubMenu()">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <ul *ngIf="toggleMenu">
           <li class="nav__row__currentRole">CurrentRole: {{ defaultRole()|| userData.role}}</li>
           <li class="nav__row__changeRole links" routerLink="/changeRole">Change Role</li>
           <li class="nav__row__LogOut">Logout</li>

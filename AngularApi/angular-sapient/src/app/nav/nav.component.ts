@@ -10,6 +10,7 @@ import {User} from "../shared/interfaces";
 export class NavComponent implements OnInit, DoCheck{
   userData!: User;
   usArr = [];
+  toggleMenu: boolean = false;
 
   constructor() {
 
@@ -19,6 +20,9 @@ export class NavComponent implements OnInit, DoCheck{
       this.userData = JSON.parse(<string>localStorage.getItem('User'))
     }
     this.userData = JSON.parse(<string>localStorage.getItem('User'));
+  }
+  toggleSubMenu(){
+    this.toggleMenu = !this.toggleMenu
   }
   defaultName(){
     if(this.userData === null){
