@@ -1,12 +1,9 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from "@angular/core";
 import {OrganizationService} from "../shared/services/organization.service";
-import {HttpInterceptor} from "@angular/common/http";
-import {SearchPipe} from "../shared/search.pipe";
 import {Organization} from "../shared/interfaces";
 import Swal from "sweetalert2";
 import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
-import {getLocaleFirstDayOfWeek} from "@angular/common";
+import { MatTableDataSource } from "@angular/material/table";
 
 @Component({
   selector: 'app-orgList',
@@ -14,7 +11,7 @@ import {getLocaleFirstDayOfWeek} from "@angular/common";
   styleUrls: ['./orgList.component.scss']
 })
 
-export class OrgListComponent  implements OnInit, AfterViewInit {
+export class OrgListComponent implements OnInit, AfterViewInit {
   lstOrgs = []
   searchStr = ''
   visibleTable: boolean = true
@@ -27,25 +24,20 @@ export class OrgListComponent  implements OnInit, AfterViewInit {
   cardType: any
   status: any
 
-  displayedColumns: string[] = ['index','name', 'cardType', 'cardNum', 'creationDate', 'status'];
-  // dataSource = new MatTableDataSource<Organization>(this.lstOrgs);
-  dataSource  = []
+  displayedColumns: string[] = ['index', 'name', 'cardType', 'cardNum', 'creationDate', 'status', 'update', 'delete'];
 
   constructor(private organizationService: OrganizationService) {
     this.organizations = []
+
   }
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-
   ngAfterViewInit() {
-    // this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit() {
     this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
 
     const orgs = localStorage.getItem('Organizations')
-    if(orgs != null) {
+    if (orgs != null) {
       this.organizations = JSON.parse(orgs)
     }
 
@@ -53,14 +45,11 @@ export class OrgListComponent  implements OnInit, AfterViewInit {
       this.visibleTable = false
     }
 
-    this.dataSource = this.lstOrgs
-    console.log(this.lstOrgs)
-    console.log(this.dataSource)
-
   }
 
 
   onDelete(id: any) {
+    console.log(id)
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -74,13 +63,13 @@ export class OrgListComponent  implements OnInit, AfterViewInit {
         Swal.fire('Deleted!', '', 'success')
 
         const oldOrgs = localStorage.getItem('Organizations')
-        if(oldOrgs !== null){
+        if (oldOrgs !== null) {
           const organizations = JSON.parse(oldOrgs)
-          organizations.splice(organizations.findIndex((a: any) => a.id == id),1)
+          organizations.splice(organizations.findIndex((a: any) => a.id == id), 1)
           localStorage.setItem('Organizations', JSON.stringify(organizations))
         }
         const orgs = localStorage.getItem('Organizations')
-        if(orgs !== null){
+        if (orgs !== null) {
           this.organizations = JSON.parse(orgs)
         }
 
@@ -92,33 +81,29 @@ export class OrgListComponent  implements OnInit, AfterViewInit {
       }
     })
   }
+
   sortByNumber() {
-    console.log('Sorting...')
     const oldOrgs = localStorage.getItem('Organizations')
 
-    if(oldOrgs !== null){
+    if (oldOrgs !== null) {
       const organizations = JSON.parse(oldOrgs)
       organizations.sort((a: any, b: any) => {
-        console.log('Sorting by number : ')
-        if(a.cardNum < b.cardNum){
-          console.log(a.cardNum + ' < ' + b.cardNum)
+        if (a.cardNum < b.cardNum) {
           return -1
-        }else if ( a.cardNum > b.cardNum ){
-          console.log(JSON.stringify(a.cardNum) + ' > ' + b.cardType)
+        } else if (a.cardNum > b.cardNum) {
           return 1;
-        }return 0
+        }
+        return 0
       })
 
-      console.log(this.lstOrgs)
       localStorage.setItem('Organizations', JSON.stringify(organizations))
 
       const orgs = localStorage.getItem('Organizations')
-      if(orgs !== null){
+      if (orgs !== null) {
         this.organizations = JSON.parse(orgs)
       }
 
       this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
-
     }
   }
 
@@ -126,23 +111,24 @@ export class OrgListComponent  implements OnInit, AfterViewInit {
     console.log('Sorting by desc...')
     const oldOrgs = localStorage.getItem('Organizations')
 
-    if(oldOrgs !== null){
+    if (oldOrgs !== null) {
       const organizations = JSON.parse(oldOrgs)
       organizations.sort((a: any, b: any) => {
         console.log('Sorting by number : ')
-        if(a.cardNum > b.cardNum){
+        if (a.cardNum > b.cardNum) {
           console.log(a.cardNum + ' > ' + b.cardNum)
           return -1
-        }else if ( a.cardNum < b.cardNum ){
+        } else if (a.cardNum < b.cardNum) {
           console.log(JSON.stringify(a.cardNum) + ' < ' + b.cardType)
           return 1;
-        }return 0
+        }
+        return 0
       })
 
       localStorage.setItem('Organizations', JSON.stringify(organizations))
 
       const orgs = localStorage.getItem('Organizations')
-      if(orgs !== null){
+      if (orgs !== null) {
         this.organizations = JSON.parse(orgs)
       }
 
@@ -156,23 +142,24 @@ export class OrgListComponent  implements OnInit, AfterViewInit {
     console.log('Sorting by name desc...')
     const oldOrgs = localStorage.getItem('Organizations')
 
-    if(oldOrgs !== null){
+    if (oldOrgs !== null) {
       const organizations = JSON.parse(oldOrgs)
       organizations.sort((a: any, b: any) => {
         console.log('Sorting by name : ')
-        if(a.name > b.name){
+        if (a.name > b.name) {
           console.log(a.name + ' > ' + b.name)
           return -1
-        }else if ( a.name < b.name ){
+        } else if (a.name < b.name) {
           console.log(JSON.stringify(a.name) + ' < ' + b.name)
           return 1;
-        }return 0
+        }
+        return 0
       })
 
       localStorage.setItem('Organizations', JSON.stringify(organizations))
 
       const orgs = localStorage.getItem('Organizations')
-      if(orgs !== null){
+      if (orgs !== null) {
         this.organizations = JSON.parse(orgs)
       }
 
@@ -180,27 +167,29 @@ export class OrgListComponent  implements OnInit, AfterViewInit {
 
     }
   }
-  sortByName(){
+
+  sortByName() {
     console.log('Sorting by name asc...')
     const oldOrgs = localStorage.getItem('Organizations')
 
-    if(oldOrgs !== null){
+    if (oldOrgs !== null) {
       const organizations = JSON.parse(oldOrgs)
       organizations.sort((a: any, b: any) => {
         console.log('Sorting by number : ')
-        if(a.name < b.name){
+        if (a.name < b.name) {
           console.log(a.name + ' < ' + b.name)
           return -1
-        }else if ( a.name > b.name ){
+        } else if (a.name > b.name) {
           console.log(JSON.stringify(a.name) + ' > ' + b.name)
           return 1;
-        }return 0
+        }
+        return 0
       })
 
       localStorage.setItem('Organizations', JSON.stringify(organizations))
 
       const orgs = localStorage.getItem('Organizations')
-      if(orgs !== null){
+      if (orgs !== null) {
         this.organizations = JSON.parse(orgs)
       }
 
@@ -208,27 +197,29 @@ export class OrgListComponent  implements OnInit, AfterViewInit {
 
     }
   }
+
   sortByDate() {
     console.log('Sorting by date asc...')
     const oldOrgs = localStorage.getItem('Organizations')
 
-    if(oldOrgs !== null){
+    if (oldOrgs !== null) {
       const organizations = JSON.parse(oldOrgs)
       organizations.sort((a: any, b: any) => {
         console.log('Sorting by date : ')
-        if(a.creationalDate < b.creationalDate){
+        if (a.creationalDate < b.creationalDate) {
           console.log(a.creationalDate + ' < ' + b.creationalDate)
           return -1
-        }else if ( a.creationalDate > b.creationalDate ){
+        } else if (a.creationalDate > b.creationalDate) {
           console.log(JSON.stringify(a.creationalDate) + ' > ' + b.creationalDate)
           return 1;
-        }return 0
+        }
+        return 0
       })
 
       localStorage.setItem('Organizations', JSON.stringify(organizations))
 
       const orgs = localStorage.getItem('Organizations')
-      if(orgs !== null){
+      if (orgs !== null) {
         this.organizations = JSON.parse(orgs)
       }
 
@@ -236,27 +227,29 @@ export class OrgListComponent  implements OnInit, AfterViewInit {
 
     }
   }
+
   sortByDateDESC() {
     console.log('Sorting by desc...')
     const oldOrgs = localStorage.getItem('Organizations')
 
-    if(oldOrgs !== null){
+    if (oldOrgs !== null) {
       const organizations = JSON.parse(oldOrgs)
       organizations.sort((a: any, b: any) => {
         console.log('Sorting by number : ')
-        if(a.creationalDate > b.creationalDate){
+        if (a.creationalDate > b.creationalDate) {
           console.log(a.creationalDate + ' > ' + b.creationalDate)
           return -1
-        }else if ( a.creationalDate < b.creationalDate ){
+        } else if (a.creationalDate < b.creationalDate) {
           console.log(JSON.stringify(a.creationalDate) + ' < ' + b.creationalDate)
           return 1;
-        }return 0
+        }
+        return 0
       })
 
       localStorage.setItem('Organizations', JSON.stringify(organizations))
 
       const orgs = localStorage.getItem('Organizations')
-      if(orgs !== null){
+      if (orgs !== null) {
         this.organizations = JSON.parse(orgs)
       }
 
