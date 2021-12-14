@@ -4,7 +4,7 @@
 
     <mat-form-field appearance="outline" class="mat-input">
       <mat-label>User Name</mat-label>
-      <input matInput id="userName" formControlName="userName" placeholder="{{checkExist() || '' || userData.userName}}">
+      <input matInput id="userName" [(ngModel)]="selectedName" formControlName="userName">
     </mat-form-field>
 
 
