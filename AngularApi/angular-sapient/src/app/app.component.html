@@ -1,12 +1,32 @@
  <div class="wrapper">
    <div class="content">
-     <div class="aside" [ngClass]="{isPanelFull : state}">
-         <app-side-bar (isHide)="isHide(true)"></app-side-bar>
-     </div>
+
+
+       <mat-drawer-container autosize>
+         <mat-drawer #drawer  mode="side" class="side__menu" >
+           <app-side-bar>
+           </app-side-bar>
+           <button type="button" mat-button (click)="drawer.toggle() && showMenuBut()">
+             <mat-icon>reorder</mat-icon>
+             Hide menu
+           </button>
+         </mat-drawer>
+        </mat-drawer-container>
+
+
+
      <div class="main">
         <app-nav></app-nav>
         <app-link-bar></app-link-bar>
         <router-outlet></router-outlet>
+
+       <div class="example-sidenav-content" *ngIf="!state">
+         <button type="button" mat-button (click)="drawer.toggle() && hideMenuBut()">
+           <mat-icon>reorder</mat-icon>
+           open menu
+         </button>
+       </div>
+
      </div>
 
    </div>

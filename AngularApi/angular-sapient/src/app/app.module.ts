@@ -24,6 +24,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import {MatMenuModule} from "@angular/material/menu";
         MatSelectModule,
         MatCardModule,
         MatIconModule,
-        MatMenuModule
+        MatMenuModule,
+        MatSidenavModule
     ],
   providers: [
     OrganizationService

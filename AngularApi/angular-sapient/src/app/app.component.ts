@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {state} from "@angular/animations";
 
 @Component({
   selector: 'app-root',
@@ -12,10 +13,13 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
   }
-
+  hideMenuBut(){
+    this.state = true
+  }
+  showMenuBut(){
+    this.state = false
+  }
   isHide(isActive: boolean) {
-    //
-    // console.log(isActive)
     this.state = isActive;
   }
 }
