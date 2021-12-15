@@ -36,17 +36,15 @@ app-main-layout {
   width: 100%;
   background-color: #ececec;
 }
-//.aside {
-//  width: 16%;
-//}
-//
-.isPanelFull {
-
-}
 .side__menu{
   min-width: 200px;
 }
+.main__btn__row{
+  flex: 1 1 auto;
+  button{
 
+  }
+}
 
 //media
 @media(max-width: 992px) {

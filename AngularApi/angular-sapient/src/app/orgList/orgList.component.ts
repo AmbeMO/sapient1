@@ -15,14 +15,10 @@ export class OrgListComponent implements OnInit, AfterViewInit {
   lstOrgs = []
   searchStr = ''
   visibleTable: boolean = true
-
   visibleSorting: boolean = false
 
   organizations: Organization []
 
-  newName: any
-  cardType: any
-  status: any
 
   displayedColumns: string[] = ['index', 'name', 'cardType', 'cardNum', 'creationDate', 'status', 'update', 'delete'];
 
@@ -45,11 +41,10 @@ export class OrgListComponent implements OnInit, AfterViewInit {
       this.visibleTable = false
     }
 
+    console.log(this.searchStr)
   }
 
-
   onDelete(id: any) {
-    console.log(id)
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -108,18 +103,14 @@ export class OrgListComponent implements OnInit, AfterViewInit {
   }
 
   sortByNumberDESC() {
-    console.log('Sorting by desc...')
     const oldOrgs = localStorage.getItem('Organizations')
 
     if (oldOrgs !== null) {
       const organizations = JSON.parse(oldOrgs)
       organizations.sort((a: any, b: any) => {
-        console.log('Sorting by number : ')
         if (a.cardNum > b.cardNum) {
-          console.log(a.cardNum + ' > ' + b.cardNum)
           return -1
         } else if (a.cardNum < b.cardNum) {
-          console.log(JSON.stringify(a.cardNum) + ' < ' + b.cardType)
           return 1;
         }
         return 0
@@ -133,24 +124,18 @@ export class OrgListComponent implements OnInit, AfterViewInit {
       }
 
       this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
-
     }
-
   }
 
   sortByNameDESC() {
-    console.log('Sorting by name desc...')
     const oldOrgs = localStorage.getItem('Organizations')
 
     if (oldOrgs !== null) {
       const organizations = JSON.parse(oldOrgs)
       organizations.sort((a: any, b: any) => {
-        console.log('Sorting by name : ')
         if (a.name > b.name) {
-          console.log(a.name + ' > ' + b.name)
           return -1
         } else if (a.name < b.name) {
-          console.log(JSON.stringify(a.name) + ' < ' + b.name)
           return 1;
         }
         return 0
@@ -164,23 +149,18 @@ export class OrgListComponent implements OnInit, AfterViewInit {
       }
 
       this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
-
     }
   }
 
   sortByName() {
-    console.log('Sorting by name asc...')
     const oldOrgs = localStorage.getItem('Organizations')
 
     if (oldOrgs !== null) {
       const organizations = JSON.parse(oldOrgs)
       organizations.sort((a: any, b: any) => {
-        console.log('Sorting by number : ')
         if (a.name < b.name) {
-          console.log(a.name + ' < ' + b.name)
           return -1
         } else if (a.name > b.name) {
-          console.log(JSON.stringify(a.name) + ' > ' + b.name)
           return 1;
         }
         return 0
@@ -194,28 +174,22 @@ export class OrgListComponent implements OnInit, AfterViewInit {
       }
 
       this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
-
     }
   }
 
   sortByDate() {
-    console.log('Sorting by date asc...')
     const oldOrgs = localStorage.getItem('Organizations')
 
     if (oldOrgs !== null) {
       const organizations = JSON.parse(oldOrgs)
       organizations.sort((a: any, b: any) => {
-        console.log('Sorting by date : ')
         if (a.creationalDate < b.creationalDate) {
-          console.log(a.creationalDate + ' < ' + b.creationalDate)
           return -1
         } else if (a.creationalDate > b.creationalDate) {
-          console.log(JSON.stringify(a.creationalDate) + ' > ' + b.creationalDate)
           return 1;
         }
         return 0
       })
-
       localStorage.setItem('Organizations', JSON.stringify(organizations))
 
       const orgs = localStorage.getItem('Organizations')
@@ -224,23 +198,18 @@ export class OrgListComponent implements OnInit, AfterViewInit {
       }
 
       this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
-
     }
   }
 
   sortByDateDESC() {
-    console.log('Sorting by desc...')
     const oldOrgs = localStorage.getItem('Organizations')
 
     if (oldOrgs !== null) {
       const organizations = JSON.parse(oldOrgs)
       organizations.sort((a: any, b: any) => {
-        console.log('Sorting by number : ')
         if (a.creationalDate > b.creationalDate) {
-          console.log(a.creationalDate + ' > ' + b.creationalDate)
           return -1
         } else if (a.creationalDate < b.creationalDate) {
-          console.log(JSON.stringify(a.creationalDate) + ' < ' + b.creationalDate)
           return 1;
         }
         return 0
@@ -252,10 +221,7 @@ export class OrgListComponent implements OnInit, AfterViewInit {
       if (orgs !== null) {
         this.organizations = JSON.parse(orgs)
       }
-
       this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
-
     }
   }
-
 }

@@ -20,6 +20,7 @@ export class UpdateOrgComponent implements OnInit{
       this.organization.id = res['id']
     })
   }
+  //придумати як це потім поміняти
   ngOnInit():void {
     const oldOrg = localStorage.getItem('Organizations')
     if(oldOrg !== null){
@@ -31,20 +32,9 @@ export class UpdateOrgComponent implements OnInit{
         this.organization.cardType = currentOrg.cardType
         this.organization.creationDate = currentOrg.creationalDate
         this.organization.cardNum = currentOrg.cardNum
-
       }
     }
   }
-  //
-  // getNewOrganizationId(){
-  //   const oldOrgs = localStorage.getItem('Organizations')
-  //   if(oldOrgs !== null){
-  //     const Organizations = JSON.parse(oldOrgs)
-  //     return Organizations.leading + 1
-  //   }else {
-  //     return 1
-  //   }
-  // }
 
   updateOrg() {
     Swal.fire({
@@ -75,8 +65,5 @@ export class UpdateOrgComponent implements OnInit{
       }
     }
    })
-
   }
-
-
 }

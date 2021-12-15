@@ -20,7 +20,7 @@
         <app-link-bar></app-link-bar>
         <router-outlet></router-outlet>
 
-       <div class="example-sidenav-content" *ngIf="!state">
+       <div class="main__btn__row" *ngIf="!state">
          <button type="button" mat-button (click)="drawer.toggle() && hideMenuBut()">
            <mat-icon>reorder</mat-icon>
            open menu

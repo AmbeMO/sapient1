@@ -19,7 +19,4 @@ export class AppComponent implements OnInit {
   showMenuBut(){
     this.state = false
   }
-  isHide(isActive: boolean) {
-    this.state = isActive;
-  }
 }

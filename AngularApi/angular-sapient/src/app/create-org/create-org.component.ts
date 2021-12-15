@@ -12,15 +12,13 @@ import {Router} from "@angular/router";
   styleUrls: ['./create-org.component.scss']
 })
 export class CreateOrgComponent implements OnInit {
-
   form!: FormGroup
   organization!: Organization;
 
   constructor(
     public router: Router,
     private fb: FormBuilder,
-    private organizationService: OrganizationService) {
-  }
+    private organizationService: OrganizationService) {}
 
   get organizationName() {
     return this.form.get('name') as FormControl
@@ -28,7 +26,6 @@ export class CreateOrgComponent implements OnInit {
 
   ngOnInit() {
     this.createOrganization();
-    console.log(this.form)
   }
 
   formatJSDate() {
@@ -51,7 +48,6 @@ export class CreateOrgComponent implements OnInit {
 
   submit() {
     if (this.form.invalid) return;
-    // this.organization = Object.assign(this.organization, this.form.value)
     this.organizationService.addOrganization(this.organizationData());
 
     Swal.fire(
@@ -70,8 +66,6 @@ export class CreateOrgComponent implements OnInit {
       cardNum: Math.floor(Math.random() * (100 - 10 + 1)) + 10,
       creationDate: this.formatJSDate(),
       status: this.form.value.status
-
     }
   }
-
 }

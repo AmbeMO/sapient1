@@ -28,7 +28,7 @@
 
       </div>
 
-        <table mat-table [dataSource]="lstOrgs" class="table__row">
+        <table mat-table [dataSource]="lstOrgs | searchName:searchStr" class="table__row">
 
           <ng-container matColumnDef="index">
             <th mat-header-cell *matHeaderCellDef>#</th>

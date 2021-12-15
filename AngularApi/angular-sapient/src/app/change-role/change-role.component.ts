@@ -6,20 +6,17 @@ import {Router} from "@angular/router";
 import {User} from "../shared/interfaces";
 import {UserService} from "../shared/services/user.service";
 
-
 @Component({
   selector: 'app-change-role',
   templateUrl: './change-role.component.html',
   styleUrls: ['./change-role.component.scss']
 })
 export class ChangeRoleComponent implements OnInit {
-
   form!: FormGroup
-  user: any = {} // typing
+  user = {} // typing
   userData!: User
-  selected: any = 'user'// typing
-  selectedName: any = 'John Smith'// typing
-
+  selected: string = 'user'
+  selectedName: string = 'John Smith'
 
   constructor(public router: Router, private fb: FormBuilder) {
   }
@@ -30,11 +27,7 @@ export class ChangeRoleComponent implements OnInit {
       this.userData = JSON.parse(<string>localStorage.getItem('User'))
     }
     this.selected = this.userData.role
-    console.log(this.selected)
-
     this.selectedName = this.userData.userName
-    console.log(this.selectedName)
-
   }
 
   createUser() {
@@ -45,25 +38,16 @@ export class ChangeRoleComponent implements OnInit {
   }
 
   checkExist(){
-    if(this.userData == null){
-      return 'John Smith'
-    }else return
+    return !this.userData ? 'John Smith' : ''
   }
   checkExistRole(){
-    if(this.userData == null){
-      return 'user'
-    }else return
+    return !this.userData ? 'user' : ''
   }
-
-
 
   submit() {
     if (this.form.invalid) {
-      console.log(this.form)
       return
     } else {
-      console.log(this.form.value)
-      console.log(this.user)
       this.user = Object.assign(this.user, this.form.value)
       localStorage.setItem('User', JSON.stringify(this.user))
 
@@ -76,21 +60,7 @@ export class ChangeRoleComponent implements OnInit {
         'You have just updated your role!',
         'success'
       )
-
       this.router.navigate(['/'])
-
     }
   }
-
-  // userData(): User {
-  //   return this.user= {
-  //     userName: this.userName.value,
-  //     role: this.form.value.role,
-  //   }
-  // }
-  // get userName(){
-  //   return this.form.get('userName') as FormControl
-  // }
-
-
 }

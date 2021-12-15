@@ -12,14 +12,9 @@ export class NavComponent implements OnInit, DoCheck {
   toggleMenu: boolean = false;
 
   constructor() {
-
   }
 
   ngOnInit() {
-    // if (this.userData || 'default') {
-    //   this.userData = JSON.parse(<string>localStorage.getItem('User'))
-    // }
-    // this.userData = JSON.parse(<string>localStorage.getItem('User'));
   }
 
   toggleSubMenu() {
@@ -31,18 +26,14 @@ export class NavComponent implements OnInit, DoCheck {
   }
 
   defaultRole() {
-    if (this.userData === null) {
-      return 'user'
-    } else return
+    return !this.userData ? 'user' : ''
   }
-
   // usually not needed
-  // all work with local stogage from service
+  // all work with local storage from service
   // this.userData = this.storageService.getByKey('User'));
   ngDoCheck() {
     this.userData = JSON.parse(<string>localStorage.getItem('User'));
   }
-
 }
 
 

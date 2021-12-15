@@ -9,12 +9,4 @@ export class SideBarComponent implements OnInit{
 
   ngOnInit() {
   }
-
-  @Output() isHide = new EventEmitter<boolean>();
-
-  isHidden(bool: boolean){
-    console.log(bool)
-    this.isHide.emit(bool)
-  }
-
 }
