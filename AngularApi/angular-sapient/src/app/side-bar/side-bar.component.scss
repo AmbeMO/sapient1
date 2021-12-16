@@ -2,9 +2,8 @@
 
 .side-bar {
   height: 92%;
-  width: 100%;
+  width: 90%;
   overflow: hidden;
-  border-right: 1px solid #dad5d5;
 }
 
 .side-bar__column {
@@ -106,9 +105,12 @@
 //media
 
 @media(max-width: 1200px) {
-  .side-bar__logo__text{
-    font-size: 18px;
+  .side-bar__logo{
+    .side-bar__logo__text{
+      font-size: 16px;
+    }
   }
+
 }
 @media(max-width: 992px) {
 

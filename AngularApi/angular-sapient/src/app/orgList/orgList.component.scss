@@ -25,9 +25,15 @@ table{
 .org-list__left-btn {
   display: flex;
   width: 60%;
-  justify-content: space-between;
+  justify-content: flex-start;
+  max-height: 40px;
+  overflow: hidden;
+  align-items: center;
 }
-
+.mat-search{
+  margin-right: 10px;
+  max-height: 50px;
+}
 .sort-btn {
   color: #b0a7a7;
   background-color: #fff;
@@ -48,7 +54,7 @@ table{
     padding-left: 30px;
     background-image: url(../../assets/img/icons/search.png);
     background-repeat: no-repeat;
-    background-size: 16px;
+    background-size: 9px;
     background-position: 3%;
     max-height: 50px;
   }
@@ -58,7 +64,7 @@ table{
   color: #fffcfc;
   border-radius: 3px;
   background-color: #5ea14a;
-  padding: 10px 20px;
+  //padding: 10px 20px;
   box-shadow: 2px 4px 6px #888888;
   max-height: 50px;
 }
@@ -68,11 +74,6 @@ table{
 th.mat-header-cell {
   text-align: center;
 }
-td, th{
-  //text-align: center!important;
-  //padding: 20px 5px 10px 5px!important;
-}
-
 .no-list {
   margin-top: 80px;
   display: flex;

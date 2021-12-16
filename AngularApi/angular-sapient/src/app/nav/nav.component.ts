@@ -1,4 +1,4 @@
-import {Component, DoCheck, OnInit} from '@angular/core';
+import {Component, DoCheck, Input, OnInit} from '@angular/core';
 import {User} from "../shared/interfaces";
 
 @Component({
@@ -11,6 +11,7 @@ export class NavComponent implements OnInit, DoCheck {
   usArr = [];
   toggleMenu: boolean = false;
 
+  @Input() menuState : boolean = false
   constructor() {
   }
 

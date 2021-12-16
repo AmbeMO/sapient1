@@ -7,10 +7,10 @@
 
         <div class="org-list__left-btn">
 
-          <mat-form-field appearance="outline" class="mat-input">
+          <mat-form-field appearance="outline" class="mat-search">
+<!--            <mat-icon>search</mat-icon>-->
            <input matInput placeholder="Search..." [(ngModel)]="searchStr">
           </mat-form-field>
-
 
           <button mat-button [matMenuTriggerFor]="menu" class="sort-btn">Sort</button>
           <mat-menu #menu="matMenu">
@@ -32,32 +32,32 @@
 
           <ng-container matColumnDef="index">
             <th mat-header-cell *matHeaderCellDef>#</th>
-            <td mat-cell *matCellDef="let element; let i = index;">{{i + 1}}</td>
+            <td mat-cell *matCellDef="let element; let i = index;" [routerLink]="['/updateOrg',element.id]">{{i + 1}}</td>
           </ng-container>
 
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
-            <td mat-cell *matCellDef="let org"> {{org['name']}} </td>
+            <td mat-cell *matCellDef="let org" [routerLink]="['/updateOrg',org.id]"> {{org['name']}} </td>
           </ng-container>
 
           <ng-container matColumnDef="cardType">
             <th mat-header-cell *matHeaderCellDef>Card Type</th>
-            <td mat-cell *matCellDef="let org"> {{org['cardType']}} </td>
+            <td mat-cell *matCellDef="let org" [routerLink]="['/updateOrg',org.id]"> {{org['cardType']}} </td>
           </ng-container>
 
           <ng-container matColumnDef="cardNum">
           <th mat-header-cell *matHeaderCellDef>Card Number</th>
-          <td mat-cell *matCellDef="let org"> {{org['cardNum']}} </td>
+          <td mat-cell *matCellDef="let org" [routerLink]="['/updateOrg',org.id]"> {{org['cardNum']}} </td>
           </ng-container>
 
           <ng-container matColumnDef="creationDate">
             <th mat-header-cell *matHeaderCellDef>Card Creation</th>
-            <td mat-cell *matCellDef="let org"> {{org['creationDate']}} </td>
+            <td mat-cell *matCellDef="let org" [routerLink]="['/updateOrg',org.id]"> {{org['creationDate']}} </td>
           </ng-container>
 
           <ng-container matColumnDef="status">
             <th mat-header-cell *matHeaderCellDef>Status</th>
-            <td mat-cell *matCellDef="let org"> {{org['status']}} </td>
+            <td mat-cell *matCellDef="let org" [routerLink]="['/updateOrg',org.id]"> {{org['status']}} </td>
           </ng-container>
 
           <ng-container matColumnDef="update">
