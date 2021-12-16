@@ -26,20 +26,19 @@ table{
   display: flex;
   width: 60%;
   justify-content: flex-start;
-  max-height: 40px;
   overflow: hidden;
   align-items: center;
 }
 .mat-search{
   margin-right: 10px;
-  max-height: 50px;
+  max-height: 45px;
 }
 .sort-btn {
   color: #b0a7a7;
   background-color: #fff;
   min-width: 100px;
-  max-height: 50px;
-  width: 25%;
+  height: 100%;
+  border: 1px solid #dedbdb;
 }
 
 .create-btn {

@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
 
 .side-bar {
   height: 92%;
@@ -63,40 +62,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   .side-bar__hr {
-    //border: none;
     width: 90%;
     border: none;
     border-top: 1px solid #dad5d5;
     size: 1px;
   }
-
   ul {
     width: 100%;
-
     li {
       width: 100%;
       text-align: center;
       padding: 24px;
-
-      &:last-child {
-        font-size: 14px;
-        //border-top: 1px solid #dad5d5;
-      }
     }
-
     .side-bar__changeRole {
       background-image: url(../../assets/img/icons/settings.png);
       background-repeat: no-repeat;
       background-size: 16px;
-      background-position: 15%;
-    }
-
-    .side-bar__hideMenu {
-      background-image: url(../../assets/img/icons/hide.png);
-      background-repeat: no-repeat;
-      background-size: 20px;
       background-position: 15%;
     }
   }
