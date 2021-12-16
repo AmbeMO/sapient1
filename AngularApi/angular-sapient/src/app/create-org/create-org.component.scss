@@ -16,8 +16,6 @@ form {
   margin: 0 auto;
   width: 50%;
   padding: 20px;
-
-
 }
 
 .form__group {
@@ -49,7 +47,7 @@ form {
   color: #fffcfc;
   border-radius: 3px;
   background-color: #5ea14a;
-  padding: 10px 20px;
+  padding: 0 20px;
   box-shadow: 2px 4px 6px #888888;
 }
 
@@ -63,7 +61,7 @@ mat-form-field {
 
 @media(max-width: 767px) {
   form {
-    width: 85%;
+    width: 95%;
   }
 }
 

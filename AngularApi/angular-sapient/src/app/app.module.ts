@@ -25,6 +25,9 @@ import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {DialogComponent} from "./dialog/dialog.component";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -37,8 +40,10 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     LinkBarComponent,
     MainLayoutComponent,
     SearchPipe,
-    UpdateOrgComponent
+    UpdateOrgComponent,
+    DialogComponent,
   ],
+  entryComponents : [DialogComponent],
     imports: [
         BrowserModule,
         CommonModule,
@@ -54,7 +59,9 @@ import {MatSidenavModule} from "@angular/material/sidenav";
         MatCardModule,
         MatIconModule,
         MatMenuModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatDialogModule,
+        MatSnackBarModule
     ],
   providers: [
     OrganizationService

@@ -46,30 +46,15 @@ table{
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 40px 0px;
-
-  input {
-    min-width: 200px;
-    width: 26%;
-    padding-left: 30px;
-    background-image: url(../../assets/img/icons/search.png);
-    background-repeat: no-repeat;
-    background-size: 9px;
-    background-position: 3%;
-    max-height: 50px;
-  }
+  margin: 40px 0;
 }
 
 .createOrg {
   color: #fffcfc;
   border-radius: 3px;
   background-color: #5ea14a;
-  //padding: 10px 20px;
   box-shadow: 2px 4px 6px #888888;
   max-height: 50px;
-}
-.table__row{
-
 }
 th.mat-header-cell {
   text-align: center;
@@ -87,6 +72,10 @@ th.mat-header-cell {
 .no-list-btn {
   display: flex;
   justify-content: flex-end;
+  min-height: 35px;
+  button{
+    padding: 0 10px;
+  }
 }
 
 .no-list__body {
@@ -104,7 +93,6 @@ th.mat-header-cell {
     padding: 10px 0 20px 0;
   }
 }
-
 .no-list-hr {
   border: none;
   border-top: 1px solid #dad5d5;
@@ -133,7 +121,6 @@ th.mat-header-cell {
 
     button {
       font-size: 12px;
-      width: 50%;
     }
   }
   .org-list__left-btn {

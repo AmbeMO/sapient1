@@ -4,6 +4,8 @@ import {Organization} from "../shared/interfaces";
 import Swal from "sweetalert2";
 import {MatPaginator} from '@angular/material/paginator';
 import { MatTableDataSource } from "@angular/material/table";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogComponent} from "../dialog/dialog.component";
 
 @Component({
   selector: 'app-orgList',
@@ -22,7 +24,7 @@ export class OrgListComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['index', 'name', 'cardType', 'cardNum', 'creationDate', 'status', 'update', 'delete'];
 
-  constructor(private organizationService: OrganizationService) {
+  constructor(private organizationService: OrganizationService, public dialog: MatDialog) {
     this.organizations = []
 
   }
@@ -44,18 +46,11 @@ export class OrgListComponent implements OnInit, AfterViewInit {
     console.log(this.searchStr)
   }
 
-  onDelete(id: any) {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Delete',
-      confirmButtonColor: '#5ea14a',
-      cancelButtonColor: '#d33',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire('Deleted!', '', 'success')
+  openDialog(id: any){
+    let dialogRef = this.dialog.open(DialogComponent)
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result === 'true'){
 
         const oldOrgs = localStorage.getItem('Organizations')
         if (oldOrgs !== null) {
