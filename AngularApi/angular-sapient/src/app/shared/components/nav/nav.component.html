@@ -2,12 +2,12 @@
   <div class="nav">
     <div class="nav__row">
 
-        <img *ngIf="!menuState"  class="nav__logo" src="../../assets/img/card.png" alt="">
+        <img *ngIf="!menuState" class="nav__logo" src="../../../../assets/img/card.png" alt="">
 
       <div class="nav__row__body" [ngClass]="{whenMenuHides:menuState}">
           <!--  try to avoid functions in templates -->
         <p>{{defaultName() || userData.userName}}</p>
-        <img src="../../assets/img/avatar.png" alt="">
+        <img src="../../../../assets/img/avatar.png" alt="">
         <div class="nav__row__menu">
       </div>
 

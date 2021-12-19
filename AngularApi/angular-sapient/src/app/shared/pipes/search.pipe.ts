@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from "@angular/core";
-import {Organization} from "./interfaces";
+import {Organization} from "../interfaces/interfaces";
 
 @Pipe({
   name: 'searchName'

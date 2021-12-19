@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Organization} from "../shared/interfaces";
-import {OrganizationService} from "../shared/services/organization.service";
+import {Organization} from "../../../shared/interfaces/interfaces";
+import {OrganizationService} from "../../../shared/services/organization.service";
 import Swal from "sweetalert2";
 import {Router} from "@angular/router";
 

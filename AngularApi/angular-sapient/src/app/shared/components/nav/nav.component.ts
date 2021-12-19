@@ -1,5 +1,5 @@
 import {Component, DoCheck, Input, OnInit} from '@angular/core';
-import {User} from "../shared/interfaces";
+import {User} from "../../interfaces/interfaces";
 
 @Component({
   selector: 'app-nav',

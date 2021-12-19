@@ -16,12 +16,12 @@
 
           <button mat-button [matMenuTriggerFor]="menu" class="sort-btn">Sort</button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="sortByNumber()">By number ASC</button>
-            <button mat-menu-item (click)="sortByNumberDESC()">By number DESC</button>
-            <button mat-menu-item (click)="sortByName()">By name ASC</button>
-            <button mat-menu-item (click)="sortByNameDESC()">By name DESC</button>
-            <button mat-menu-item (click)="sortByDate()">By date ASC</button>
-            <button mat-menu-item (click)="sortByDateDESC()">By date DESC</button>
+            <button mat-menu-item (click)="sortBy('nameASC')">By number ASC</button>
+            <button mat-menu-item (click)="sortBy('nameDESC')">By number DESC</button>
+            <button mat-menu-item (click)="sortBy('numASC')">By name ASC</button>
+            <button mat-menu-item (click)="sortBy('numDESC')">By name DESC</button>
+            <button mat-menu-item (click)="sortBy('dateASC')">By date ASC</button>
+            <button mat-menu-item (click)="sortBy('dateDESC')">By date DESC</button>
           </mat-menu>
 
         </div>
@@ -91,7 +91,7 @@
         <button class="links createOrg" routerLink="/createOrg">Create Organization</button>
       </div>
       <div class="no-list__body">
-        <img src="../../assets/img/icons/open-cardboard-box.png" alt="">
+        <img src="../../../../assets/img/icons/open-cardboard-box.png" alt="">
         <p>No organization, please create one</p>
         <hr class="no-list-hr">
       </div>

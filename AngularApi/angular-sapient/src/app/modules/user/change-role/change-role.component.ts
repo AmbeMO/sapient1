@@ -3,8 +3,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
 import Swal from "sweetalert2";
 import {Router} from "@angular/router";
-import {User} from "../shared/interfaces";
-import {UserService} from "../shared/services/user.service";
+import {User} from "../../../shared/interfaces/interfaces";
+import {UserService} from "../../../shared/services/user.service";
 
 @Component({
   selector: 'app-change-role',
@@ -13,7 +13,7 @@ import {UserService} from "../shared/services/user.service";
 })
 export class ChangeRoleComponent implements OnInit {
   form!: FormGroup
-  user = {} // typing
+  user: object = {}
   userData!: User
   selected: string = 'user'
   selectedName: string = 'John Smith'
@@ -52,8 +52,6 @@ export class ChangeRoleComponent implements OnInit {
       localStorage.setItem('User', JSON.stringify(this.user))
 
       this.userData = JSON.parse(<string>localStorage.getItem('User'));
-
-      this.form.reset();
 
       Swal.fire(
         'Nice!',

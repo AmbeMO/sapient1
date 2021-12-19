@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {FormGroup} from "@angular/forms";
 import {ActivatedRoute, Route, Router} from "@angular/router";
-import {Organization} from "../shared/interfaces";
+import {Organization} from "../../../shared/interfaces/interfaces";
 import Swal from "sweetalert2";
 
 @Component({

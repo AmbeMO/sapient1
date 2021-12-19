@@ -1,11 +1,11 @@
 import {NgModule} from "@angular/core";
 import {Routes, RouterModule} from "@angular/router";
 import {AppComponent} from "./app.component";
-import {OrgListComponent} from "./orgList/orgList.component";
-import {CreateOrgComponent} from "./create-org/create-org.component";
-import {MainLayoutComponent} from "./shared/components/main-layout.component";
-import {ChangeRoleComponent} from "./change-role/change-role.component";
-import {UpdateOrgComponent} from "./udate-org/update-org.component";
+import {OrgListComponent} from "./modules/organization/orgList/orgList.component";
+import {CreateOrgComponent} from "./modules/organization/create-org/create-org.component";
+import {MainLayoutComponent} from "./shared/components/layout/main-layout.component";
+import {ChangeRoleComponent} from "./modules/user/change-role/change-role.component";
+import {UpdateOrgComponent} from "./modules/organization/udate-org/update-org.component";
 
 const routes: Routes = [
   {
