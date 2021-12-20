@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
-import Swal from "sweetalert2";
 import {Router} from "@angular/router";
 import {User} from "../../../shared/interfaces/interfaces";
-import {UserService} from "../../../shared/services/user.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-change-role',
@@ -18,7 +16,10 @@ export class ChangeRoleComponent implements OnInit {
   selected: string = 'user'
   selectedName: string = 'John Smith'
 
-  constructor(public router: Router, private fb: FormBuilder) {
+  constructor(public router: Router,
+              private fb: FormBuilder,
+              private snackBar: MatSnackBar
+              ) {
   }
 
   ngOnInit() {
@@ -53,12 +54,13 @@ export class ChangeRoleComponent implements OnInit {
 
       this.userData = JSON.parse(<string>localStorage.getItem('User'));
 
-      Swal.fire(
-        'Nice!',
-        'You have just updated your role!',
-        'success'
-      )
       this.router.navigate(['/'])
     }
+  }
+
+  openUpdateSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000
+    })
   }
 }

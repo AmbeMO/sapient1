@@ -25,9 +25,10 @@ import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {MatDialogModule} from "@angular/material/dialog";
 import {DialogComponent} from "./shared/dialog/dialog.component";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {UpdateDialogComponent} from "./shared/updateDialog/updateDialog.component";
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     SearchPipe,
     UpdateOrgComponent,
     DialogComponent,
+    UpdateDialogComponent
   ],
   entryComponents : [DialogComponent],
     imports: [

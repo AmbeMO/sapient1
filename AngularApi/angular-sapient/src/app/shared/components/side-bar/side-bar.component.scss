@@ -7,7 +7,6 @@
 
 .side-bar__column {
   height: 100%;
-  width: 90%;
 
   padding-top: 20px;
 
@@ -38,6 +37,7 @@
   }
 
   .side-bar__logo__text {
+    padding-right: 10px;
     height: 100%;
     width: 50%;
 
@@ -63,7 +63,7 @@
   justify-content: center;
   align-items: center;
   .side-bar__hr {
-    width: 90%;
+    width: 100%;
     border: none;
     border-top: 1px solid #dad5d5;
     size: 1px;

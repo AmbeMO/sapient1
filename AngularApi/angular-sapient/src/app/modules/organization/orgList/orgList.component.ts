@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from "@angular/core";
-import {OrganizationService} from "../../../shared/services/organization.service";
+import {Component, OnInit} from "@angular/core";
 import {Organization} from "../../../shared/interfaces/interfaces";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogComponent} from "../../../shared/dialog/dialog.component";
+
 
 @Component({
   selector: 'app-orgList',
@@ -10,7 +10,7 @@ import {DialogComponent} from "../../../shared/dialog/dialog.component";
   styleUrls: ['./orgList.component.scss']
 })
 
-export class OrgListComponent implements OnInit, AfterViewInit {
+export class OrgListComponent implements OnInit {
   lstOrgs = []
   searchStr = ''
   visibleTable: boolean = true
@@ -19,26 +19,13 @@ export class OrgListComponent implements OnInit, AfterViewInit {
   organizations: Organization []
   orgParsed = JSON.parse(<string>localStorage.getItem('Organizations'))
 
-
   displayedColumns: string[] = ['index', 'name', 'cardType', 'cardNum', 'creationDate', 'status', 'update', 'delete'];
 
-  constructor(
-    private organizationService: OrganizationService,
-    public dialog: MatDialog
-  ) {
+  constructor(public dialog: MatDialog) {
     this.organizations = []
-
   }
-  ngAfterViewInit() {
-  }
-
   ngOnInit() {
     this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
-
-    const orgs = localStorage.getItem('Organizations')
-    if (orgs != null) {
-      this.organizations = JSON.parse(orgs)
-    }
 
     if (this.lstOrgs.length < 1) {
       this.visibleTable = false
@@ -48,7 +35,7 @@ export class OrgListComponent implements OnInit, AfterViewInit {
   openDialog(id: string){
     let dialogRef = this.dialog.open(DialogComponent)
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe( result => {
       this.deleteOrganization(result, id);
     })
   }
@@ -60,10 +47,6 @@ export class OrgListComponent implements OnInit, AfterViewInit {
         const organizations = JSON.parse(oldOrgs)
         organizations.splice(organizations.findIndex((a: any) => a.id == id), 1)
         localStorage.setItem('Organizations', JSON.stringify(organizations))
-      }
-      const orgs = localStorage.getItem('Organizations')
-      if (orgs !== null) {
-        this.organizations = JSON.parse(orgs)
       }
 
       this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
@@ -95,6 +78,7 @@ export class OrgListComponent implements OnInit, AfterViewInit {
         return 0
       })
     }else if (sorting === 'numASC'){
+      console.log('numASC')
       this.orgParsed.sort((a: any, b: any) => {
         if (a.cardNum > b.cardNum) {
           return -1
@@ -105,6 +89,7 @@ export class OrgListComponent implements OnInit, AfterViewInit {
       })
     }
     else if (sorting === 'numDESC'){
+      console.log('numDESC')
       this.orgParsed.sort((a: any, b: any) => {
         if (a.cardNum < b.cardNum) {
           return -1
@@ -134,24 +119,9 @@ export class OrgListComponent implements OnInit, AfterViewInit {
         return 0
       })
     }
-
     localStorage.setItem('Organizations', JSON.stringify(this.orgParsed))
     this.lstOrgs = this.orgParsed
-    console.log(this.lstOrgs)
-    console.log(this.orgParsed)
-
-    //
-    //   localStorage.setItem('Organizations', JSON.stringify(organizations))
-    //
-    //   const orgs = localStorage.getItem('Organizations')
-    //   if (orgs !== null) {
-    //     this.organizations = JSON.parse(orgs)
-    //   }
-    //
-    //   this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
-    // }
+    this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
   }
-
-
-  }
+}
 

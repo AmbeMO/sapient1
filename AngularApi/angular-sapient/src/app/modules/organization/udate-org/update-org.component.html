@@ -20,7 +20,7 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="mat-input">
-          <input matInput [(ngModel)]="organization.creationDate" type="text" placeholder="Creation Date" readonly>
+          <input matInput [(ngModel)]="organization.creationDate" type="text" readonly>
       </mat-form-field>
 
 
@@ -41,7 +41,7 @@
         mat-raised-button
         type="submit"
         class="btn"
-        (click)="updateOrg()"
+        (click)="openDialog()"
       >Update</button>
     </div>
 

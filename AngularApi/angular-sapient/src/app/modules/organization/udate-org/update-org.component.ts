@@ -1,8 +1,8 @@
 import {Component, OnInit} from "@angular/core";
-import {FormGroup} from "@angular/forms";
 import {ActivatedRoute, Route, Router} from "@angular/router";
 import {Organization} from "../../../shared/interfaces/interfaces";
-import Swal from "sweetalert2";
+import {MatDialog} from "@angular/material/dialog";
+import {UpdateDialogComponent} from "../../../shared/updateDialog/updateDialog.component";
 
 @Component({
   selector: 'app-update-org',
@@ -13,7 +13,10 @@ export class UpdateOrgComponent implements OnInit{
 
   organization: Organization;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              public dialog: MatDialog
+              ) {
 
     this.organization = new Organization()
     this.route.params.subscribe((res) => {
@@ -30,26 +33,21 @@ export class UpdateOrgComponent implements OnInit{
         this.organization.name = currentOrg.name
         this.organization.status = currentOrg.status
         this.organization.cardType = currentOrg.cardType
-        this.organization.creationDate = currentOrg.creationalDate
+        this.organization.creationDate = currentOrg.creationDate
         this.organization.cardNum = currentOrg.cardNum
       }
     }
   }
 
-  updateOrg() {
-    Swal.fire({
-      title: 'Do you want to save the changes?',
-      showDenyButton: true,
-      showCancelButton: true,
-      icon: 'warning',
-      confirmButtonText: 'Update',
-      denyButtonText: `Don't update`,
-      confirmButtonColor: '#5ea14a',
-      cancelButtonColor: '#B8B8B8',
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
+  openDialog() {
+    let dialogRef = this.dialog.open(UpdateDialogComponent)
 
+    dialogRef.afterClosed().subscribe( result => {
+      this.updateOrg(result);
+    })
+  }
+
+  updateOrg(result:string) {
         const oldOrg = localStorage.getItem('Organizations')
         if(oldOrg !== null){
           const Organizations = JSON.parse(oldOrg)
@@ -58,12 +56,8 @@ export class UpdateOrgComponent implements OnInit{
           localStorage.setItem('Organizations', JSON.stringify(Organizations))
 
           this.router.navigate(['/'])
-
-        Swal.fire('Updated!', '', 'success')
-      } else if (result.isDenied) {
-        Swal.fire('Changes are not saved', '', 'info')
-      }
-    }
-   })
+   }
   }
+
+
 }

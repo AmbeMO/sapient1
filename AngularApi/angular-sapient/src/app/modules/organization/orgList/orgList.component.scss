@@ -9,9 +9,14 @@
 table{
   width: 100%;
 }
+.small__column{
+  max-width: 20px;
+}
+
 .org-list {
   background-color: #ececec;
-  width: 94%;
+  width: 100%;
+  padding: 50px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

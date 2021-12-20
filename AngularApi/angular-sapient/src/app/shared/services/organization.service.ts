@@ -10,6 +10,5 @@ export class OrganizationService {
     let storageOrganizations = localStorage.getItem('Organizations')
     let organizations = storageOrganizations ? [organization, ...JSON.parse(<string>storageOrganizations)] : [organization]
     localStorage.setItem('Organizations', JSON.stringify(organizations))
-
   }
 }

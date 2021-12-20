@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Organization} from "../../../shared/interfaces/interfaces";
 import {OrganizationService} from "../../../shared/services/organization.service";
-import Swal from "sweetalert2";
 import {Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 
 @Component({
@@ -18,7 +18,9 @@ export class CreateOrgComponent implements OnInit {
   constructor(
     public router: Router,
     private fb: FormBuilder,
-    private organizationService: OrganizationService) {}
+    private organizationService: OrganizationService,
+    private snackBar: MatSnackBar
+    ) {}
 
   get organizationName() {
     return this.form.get('name') as FormControl
@@ -50,11 +52,8 @@ export class CreateOrgComponent implements OnInit {
     if (this.form.invalid) return;
     this.organizationService.addOrganization(this.organizationData());
 
-    Swal.fire(
-      'Nice!',
-      'You have added your organization!',
-      'success'
-    )
+
+
     this.router.navigate(['/'])
   }
 
@@ -67,5 +66,11 @@ export class CreateOrgComponent implements OnInit {
       creationDate: this.formatJSDate(),
       status: this.form.value.status
     }
+  }
+
+  openCreateSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000
+    })
   }
 }
