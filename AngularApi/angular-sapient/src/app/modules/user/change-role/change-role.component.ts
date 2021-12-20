@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {User} from "../../../shared/interfaces/interfaces";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {UserService} from "../../../shared/services/user.service";
 
 @Component({
   selector: 'app-change-role',
@@ -18,7 +19,8 @@ export class ChangeRoleComponent implements OnInit {
 
   constructor(public router: Router,
               private fb: FormBuilder,
-              private snackBar: MatSnackBar
+              private snackBar: MatSnackBar,
+              private userService: UserService
               ) {
   }
 
@@ -27,6 +29,9 @@ export class ChangeRoleComponent implements OnInit {
     if(this.userData || 'default'){
       this.userData = JSON.parse(<string>localStorage.getItem('User'))
     }
+    console.log(this.userService.getUser())
+
+
     this.selected = this.userData.role
     this.selectedName = this.userData.userName
   }

@@ -52,8 +52,6 @@ export class CreateOrgComponent implements OnInit {
     if (this.form.invalid) return;
     this.organizationService.addOrganization(this.organizationData());
 
-
-
     this.router.navigate(['/'])
   }
 

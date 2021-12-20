@@ -3,6 +3,8 @@ import {ActivatedRoute, Route, Router} from "@angular/router";
 import {Organization} from "../../../shared/interfaces/interfaces";
 import {MatDialog} from "@angular/material/dialog";
 import {UpdateDialogComponent} from "../../../shared/updateDialog/updateDialog.component";
+import {UserService} from "../../../shared/services/user.service";
+import {OrganizationService} from "../../../shared/services/organization.service";
 
 @Component({
   selector: 'app-update-org',
@@ -15,7 +17,8 @@ export class UpdateOrgComponent implements OnInit{
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              public dialog: MatDialog
+              public dialog: MatDialog,
+              private organizationService : OrganizationService
               ) {
 
     this.organization = new Organization()
@@ -25,11 +28,11 @@ export class UpdateOrgComponent implements OnInit{
   }
   //придумати як це потім поміняти
   ngOnInit():void {
-    const oldOrg = localStorage.getItem('Organizations')
-    if(oldOrg !== null){
-      const Organizations = JSON.parse(oldOrg)
-      const currentOrg = Organizations.find((o : any) => o.id ==  this.organization.id)
-      if (currentOrg !== undefined) {
+    let currentOrg = this.organizationService.currentOrganization(this.organization, this.organization.id)
+
+    console.log(this.organizationService.currentOrganization(this.organization, this.organization.id))
+
+      if (currentOrg) {
         this.organization.name = currentOrg.name
         this.organization.status = currentOrg.status
         this.organization.cardType = currentOrg.cardType
@@ -37,7 +40,6 @@ export class UpdateOrgComponent implements OnInit{
         this.organization.cardNum = currentOrg.cardNum
       }
     }
-  }
 
   openDialog() {
     let dialogRef = this.dialog.open(UpdateDialogComponent)
@@ -47,17 +49,9 @@ export class UpdateOrgComponent implements OnInit{
     })
   }
 
-  updateOrg(result:string) {
-        const oldOrg = localStorage.getItem('Organizations')
-        if(oldOrg !== null){
-          const Organizations = JSON.parse(oldOrg)
-          Organizations.splice(Organizations.findIndex((a:any) => a.id == this.organization.id),1)
-          Organizations.push(this.organization)
-          localStorage.setItem('Organizations', JSON.stringify(Organizations))
+  updateOrg(result: string) {
+        this.organizationService.updateOrganization(this.organization, this.organization.id)
 
           this.router.navigate(['/'])
-   }
   }
-
-
 }

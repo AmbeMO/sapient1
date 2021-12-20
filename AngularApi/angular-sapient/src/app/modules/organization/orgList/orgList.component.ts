@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {Organization} from "../../../shared/interfaces/interfaces";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogComponent} from "../../../shared/dialog/dialog.component";
+import {OrganizationService} from "../../../shared/services/organization.service";
 
 
 @Component({
@@ -21,7 +22,9 @@ export class OrgListComponent implements OnInit {
 
   displayedColumns: string[] = ['index', 'name', 'cardType', 'cardNum', 'creationDate', 'status', 'update', 'delete'];
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog,
+              private organizationService: OrganizationService
+              ) {
     this.organizations = []
   }
   ngOnInit() {
@@ -40,15 +43,10 @@ export class OrgListComponent implements OnInit {
     })
   }
 
-  deleteOrganization(result:string, id: string){
+  deleteOrganization(result: string, id: string){
     if(result === 'true'){
-      const oldOrgs = localStorage.getItem('Organizations')
-      if (oldOrgs !== null) {
-        const organizations = JSON.parse(oldOrgs)
-        organizations.splice(organizations.findIndex((a: any) => a.id == id), 1)
-        localStorage.setItem('Organizations', JSON.stringify(organizations))
-      }
 
+      this.organizationService.deleteOrganization(id)
       this.lstOrgs = JSON.parse(<string>localStorage.getItem('Organizations'));
 
       if (this.lstOrgs.length < 1) {

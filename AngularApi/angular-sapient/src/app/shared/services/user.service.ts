@@ -7,8 +7,21 @@ import {User} from "../interfaces/interfaces";
 
 export class UserService {
   addUser(user: User) {
-    let storageUsers = localStorage.getItem('Users')
-    let users = storageUsers ? [user, ...JSON.parse(<string>storageUsers)] : [user]
-    localStorage.setItem('Organizations', JSON.stringify(users))
+    let storageUser = localStorage.getItem('User')
+    let users = storageUser ? [user] : [user]
+    localStorage.setItem('User', JSON.stringify(users))
+  }
+  getUser() {
+    return JSON.parse(<string>localStorage.getItem('User'))
+  }
+  setUser(user: User){
+    let storageUser = localStorage.getItem('User')
+    let newUsers = storageUser ? [user] : [user]
+    localStorage.setItem('User', JSON.stringify(newUsers))
+  }
+  deleteUser(user: User){
+    let storageUser = localStorage.getItem('User')
+    let deletedUser = storageUser ? [] : []
+    localStorage.setItem('User', JSON.stringify(deletedUser))
   }
 }
