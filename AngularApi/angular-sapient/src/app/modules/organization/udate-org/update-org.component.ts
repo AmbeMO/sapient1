@@ -26,11 +26,8 @@ export class UpdateOrgComponent implements OnInit{
       this.organization.id = res['id']
     })
   }
-  //придумати як це потім поміняти
   ngOnInit():void {
-    let currentOrg = this.organizationService.currentOrganization(this.organization, this.organization.id)
-
-    console.log(this.organizationService.currentOrganization(this.organization, this.organization.id))
+    let currentOrg = this.organizationService.getCurrentOrganization(this.organization.id)
 
       if (currentOrg) {
         this.organization.name = currentOrg.name
@@ -39,6 +36,7 @@ export class UpdateOrgComponent implements OnInit{
         this.organization.creationDate = currentOrg.creationDate
         this.organization.cardNum = currentOrg.cardNum
       }
+
     }
 
   openDialog() {

@@ -6,7 +6,7 @@
 
       <div class="nav__row__body" [ngClass]="{whenMenuHides:menuState}">
           <!--  try to avoid functions in templates -->
-        <p>{{defaultName() || userData.userName}}</p>
+        <p>{{userName}}</p>
         <img src="../../../../assets/img/avatar.png" alt="">
         <div class="nav__row__menu">
       </div>
@@ -17,7 +17,7 @@
         <mat-menu #beforeMenu="matMenu" xPosition="before">
           <button mat-menu-item>
             <mat-icon>people_outline</mat-icon>
-            <span>CurrentRole: {{ defaultRole() || userData.role}}</span>
+            <span>CurrentRole: {{userRole}}</span>
           </button>
           <button mat-menu-item routerLink="/changeRole">
             <mat-icon>filter_vintage</mat-icon>

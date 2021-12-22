@@ -4,13 +4,13 @@
     <mat-card class="form__group">
         <mat-form-field appearance="outline" class="mat-input">
           <mat-label>User Name</mat-label>
-          <input matInput id="userName" [(ngModel)]="selectedName" formControlName="userName">
+          <input matInput id="userName" [(ngModel)]="userData.userName" formControlName="userName">
         </mat-form-field>
 
 
         <mat-form-field appearance="outline" class="mat-input">
           <mat-label>User role</mat-label>
-          <mat-select [(ngModel)]="selected" formControlName="role">
+          <mat-select [(ngModel)]="userData.role" formControlName="role">
             <mat-option value="user">user</mat-option>
             <mat-option value="admin">admin</mat-option>
             <mat-option value="editor">editor</mat-option>
