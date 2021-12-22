@@ -22,10 +22,10 @@ export class OrganizationService {
 
   getCurrentOrganization(id: number | undefined){
     let storageOrganizations = this.getOrganizations();
-    return storageOrganizations ? storageOrganizations.find((item: any) => item.id = id) : null
+    return storageOrganizations ? storageOrganizations.find((item: any) => item.id == id) : null
   }
 
-  updateOrganization(organization : Organization, id: any){
+  updateOrganization(organization : Organization){
     let orgList = this.getOrganizations()
     if (orgList) {
             orgList.splice(orgList.findIndex((a: any) => a.id == organization.id), 1)

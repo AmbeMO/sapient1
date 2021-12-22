@@ -3,7 +3,6 @@ import {ActivatedRoute, Route, Router} from "@angular/router";
 import {Organization} from "../../../shared/interfaces/interfaces";
 import {MatDialog} from "@angular/material/dialog";
 import {UpdateDialogComponent} from "../../../shared/updateDialog/updateDialog.component";
-import {UserService} from "../../../shared/services/user.service";
 import {OrganizationService} from "../../../shared/services/organization.service";
 
 @Component({
@@ -28,6 +27,8 @@ export class UpdateOrgComponent implements OnInit{
   }
   ngOnInit():void {
     let currentOrg = this.organizationService.getCurrentOrganization(this.organization.id)
+    console.log(this.organizationService.getOrganizations())
+    console.log(currentOrg)
 
       if (currentOrg) {
         this.organization.name = currentOrg.name
@@ -48,7 +49,7 @@ export class UpdateOrgComponent implements OnInit{
   }
 
   updateOrg(result: string) {
-        this.organizationService.updateOrganization(this.organization, this.organization.id)
+        this.organizationService.updateOrganization(this.organization)
 
           this.router.navigate(['/'])
   }

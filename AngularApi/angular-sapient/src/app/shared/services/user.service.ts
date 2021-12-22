@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {User} from "../interfaces/interfaces";
-import {Observable, Subject, of} from "rxjs";
+import {Observable, Subject} from "rxjs";
 
 
 @Injectable({
@@ -17,8 +17,6 @@ export class UserService {
   observerRole = new Observable(observer => {
     observer.next(this.getUserRole())
   })
-
-
 
   getUser() {
     return JSON.parse(<string>localStorage.getItem('User'))
