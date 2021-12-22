@@ -30,7 +30,7 @@ export class OrganizationService {
     if (orgList) {
             orgList.splice(orgList.findIndex((a: any) => a.id == organization.id), 1)
             orgList.push(organization)
-            localStorage.setItem('Organizations', JSON.stringify(orgList))
+            this.setOrganizations(orgList)
           }
   }
 

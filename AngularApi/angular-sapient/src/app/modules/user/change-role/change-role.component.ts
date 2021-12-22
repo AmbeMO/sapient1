@@ -4,7 +4,7 @@ import {Router} from "@angular/router";
 import {User} from "../../../shared/interfaces/interfaces";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {UserService} from "../../../shared/services/user.service";
-import {of, Subject} from "rxjs";
+
 
 @Component({
   selector: 'app-change-role',
@@ -24,14 +24,10 @@ export class ChangeRoleComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('subscribing... in change-role')
-
     this.createUser();
     if(this.userData || 'default'){
       this.userData = JSON.parse(<string>localStorage.getItem('User'))
     }
-
-
   }
 
   createUser() {
@@ -54,8 +50,8 @@ export class ChangeRoleComponent implements OnInit {
     } else {
 
       this.user = Object.assign(this.user, this.form.value)
-      localStorage.setItem('User', JSON.stringify(this.user))
-      this.userData = JSON.parse(<string>localStorage.getItem('User'));
+      this.userService.setUser(this.user)
+      this.userData = this.userService.getUser()
 
       this.userService.observer.subscribe(this.userService.userName$)
       this.userService.observerRole.subscribe(this.userService.userRole$)

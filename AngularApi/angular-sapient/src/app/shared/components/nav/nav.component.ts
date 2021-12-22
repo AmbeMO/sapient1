@@ -21,8 +21,6 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('subscribing... in nav')
-
       this.userService.userName$.subscribe(name => {
       this.userName = name
     })
@@ -33,7 +31,6 @@ export class NavComponent implements OnInit {
 
     this.userService.observer.subscribe(this.userService.userName$)
     this.userService.observerRole.subscribe(this.userService.userRole$)
-
   }
 
   toggleSubMenu() {
@@ -47,13 +44,6 @@ export class NavComponent implements OnInit {
   defaultRole() {
     return !this.userData ? 'user' : ''
   }
-
-  // usually not needed
-  // all work with local storage from service
-  // this.userData = this.storageService.getByKey('User'));
-  // ngDoCheck() {
-  //   this.userData = JSON.parse(<string>localStorage.getItem('User'));
-  // }
 }
 
 

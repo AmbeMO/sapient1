@@ -23,7 +23,7 @@ export class UserService {
   getUser() {
     return JSON.parse(<string>localStorage.getItem('User'))
   }
-  setUser(user: User){
+  setUser(user: User | object){
     localStorage.setItem('User', JSON.stringify(user))
   }
   getUserName(){
