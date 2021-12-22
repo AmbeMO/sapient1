@@ -4,6 +4,7 @@ import {Organization} from "../../../shared/interfaces/interfaces";
 import {OrganizationService} from "../../../shared/services/organization.service";
 import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {v4 as uuidv4 } from "uuid"
 
 
 @Component({
@@ -36,7 +37,7 @@ export class CreateOrgComponent implements OnInit {
 
   createOrganization() {
     this.form = this.fb.group({
-      id: [Math.floor(Math.random() * (10000 - 10 + 1)) + 10],
+      id: [uuidv4()],
       name: [null, [
         Validators.required,
         Validators.minLength(6),
@@ -57,7 +58,7 @@ export class CreateOrgComponent implements OnInit {
 
   organizationData(): Organization {
     return this.organization = {
-      id: Math.floor(Math.random() * (10000 - 10 + 1)) + 10,
+      id: uuidv4(),
       name: this.organizationName.value,
       cardType: this.form.value.cardType,
       cardNum: Math.floor(Math.random() * (100 - 10 + 1)) + 10,

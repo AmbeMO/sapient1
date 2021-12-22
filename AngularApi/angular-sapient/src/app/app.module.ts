@@ -29,6 +29,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {DialogComponent} from "./shared/dialog/dialog.component";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {UpdateDialogComponent} from "./shared/updateDialog/updateDialog.component";
+import {v4 as uuidv4 } from "uuid"
 
 @NgModule({
   declarations: [

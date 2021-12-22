@@ -20,7 +20,7 @@ export class OrganizationService {
     localStorage.setItem('Organizations', JSON.stringify(organizations))
   }
 
-  getCurrentOrganization(id: number | undefined){
+  getCurrentOrganization(id: string | undefined){
     let storageOrganizations = this.getOrganizations();
     return storageOrganizations ? storageOrganizations.find((item: any) => item.id == id) : null
   }

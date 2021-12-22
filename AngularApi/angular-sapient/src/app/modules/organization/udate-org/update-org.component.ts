@@ -27,8 +27,6 @@ export class UpdateOrgComponent implements OnInit{
   }
   ngOnInit():void {
     let currentOrg = this.organizationService.getCurrentOrganization(this.organization.id)
-    console.log(this.organizationService.getOrganizations())
-    console.log(currentOrg)
 
       if (currentOrg) {
         this.organization.name = currentOrg.name

@@ -1,6 +1,5 @@
 import {NgModule} from "@angular/core";
 import {Routes, RouterModule} from "@angular/router";
-import {AppComponent} from "./app.component";
 import {OrgListComponent} from "./modules/organization/orgList/orgList.component";
 import {CreateOrgComponent} from "./modules/organization/create-org/create-org.component";
 import {MainLayoutComponent} from "./shared/components/layout/main-layout.component";

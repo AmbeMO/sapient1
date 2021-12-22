@@ -1,5 +1,5 @@
 export class Organization {
-  id?: number
+  id?:  string | undefined
   name?: any
   cardType?: boolean
   cardNum?: number

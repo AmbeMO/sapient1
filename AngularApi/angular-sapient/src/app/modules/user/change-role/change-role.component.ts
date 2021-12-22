@@ -26,7 +26,7 @@ export class ChangeRoleComponent implements OnInit {
   ngOnInit() {
     this.createUser();
     if(this.userData || 'default'){
-      this.userData = JSON.parse(<string>localStorage.getItem('User'))
+      this.userData = this.userService.getUser()
     }
   }
 
