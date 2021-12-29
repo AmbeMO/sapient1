@@ -20,7 +20,7 @@ export class OrgListComponent implements OnInit {
   organizations: Organization []
   orgParsed = JSON.parse(<string>localStorage.getItem('Organizations'))
 
-  displayedColumns: string[] = ['index', 'name', 'cardType', 'cardNum', 'creationDate', 'status', 'update', 'delete'];
+  displayedColumns: string[] = ['index', 'name', 'cardType', 'cardNum', 'creationDate', 'status','payed', 'update', 'delete'];
 
   constructor(public dialog: MatDialog,
               private organizationService: OrganizationService

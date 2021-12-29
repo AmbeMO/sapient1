@@ -1,0 +1,33 @@
+
+<div class="org-pay">
+  <div class="org-pay__column">
+    <div class="org-pay__img">
+
+    </div>
+    <form>
+
+      <mat-form-field appearance="outline" class="mat-input">
+        <mat-label>Name on Card</mat-label>
+        <input matInput placeholder="John Smith">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="mat-input">
+        <mat-label>Card Number</mat-label>
+        <input matInput>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="mat-input">
+        <mat-label>Valid through</mat-label>
+        <input matInput placeholder="00/00">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="mat-input">
+        <mat-label>CVV</mat-label>
+        <input matInput placeholder="000">
+      </mat-form-field>
+
+      <button mat-button routerLink="/" (click)="changePayed()">Pay</button>
+
+    </form>
+  </div>
+</div>

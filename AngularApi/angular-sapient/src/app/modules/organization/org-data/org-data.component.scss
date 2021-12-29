@@ -1,0 +1,36 @@
+.org-data{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.org-data__row_false{
+  margin-top: 100px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p{
+    text-align: center;
+    span{
+      font-size: 18px;
+    }
+  }
+  hr{
+    margin-top: 10px;
+    size: 2px;
+    width: 100%;
+  }
+  button{
+    margin-top: 10px;
+    background-color: #5ea14a;
+    color: #fffcfc;
+  }
+  img{
+    height: 10%;
+    width: 20%;
+    object-fit: contain;
+  }
+}

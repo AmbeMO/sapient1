@@ -35,7 +35,6 @@ export class UpdateOrgComponent implements OnInit{
         this.organization.creationDate = currentOrg.creationDate
         this.organization.cardNum = currentOrg.cardNum
       }
-
     }
 
   openDialog() {

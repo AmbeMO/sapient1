@@ -46,6 +46,7 @@ export class CreateOrgComponent implements OnInit {
       cardNum: [Math.floor(Math.random() * (100 - 10 + 1)) + 10],
       creationDate: [this.formatJSDate()],
       status: [null, [Validators.required]],
+      payed: false
     })
   }
 
@@ -63,7 +64,8 @@ export class CreateOrgComponent implements OnInit {
       cardType: this.form.value.cardType,
       cardNum: Math.floor(Math.random() * (100 - 10 + 1)) + 10,
       creationDate: this.formatJSDate(),
-      status: this.form.value.status
+      status: this.form.value.status,
+      payed: false
     }
   }
 

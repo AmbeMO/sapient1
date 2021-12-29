@@ -1,0 +1,18 @@
+
+  <div class="org-data">
+
+    <div class="org-data__row_false" *ngIf="!orgState">
+      <img src="./assets/img/icons/open-cardboard-box.png" alt="">
+      <p>Organization <span>{{organization.name}}</span> not payed, if you want to pay, press the bottom above</p>
+      <hr>
+      <button mat-button [routerLink]="['/orgData',organization.id,'orgPay']">pay organization</button>
+    </div>
+
+    <div class="org-data__row_true" *ngIf="orgState">
+      <p>Organization name - {{organization.name}}</p>
+      <p>Card type- {{organization.cardType}}</p>
+      <p>Card num - {{organization.cardNum}}</p>
+      <p>Organization creation date - {{organization.creationDate}}</p>
+      <p>Organization status - {{organization.status}}</p>
+    </div>
+  </div>
